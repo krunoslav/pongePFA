@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ponge.hr/pfa/axis/core"
+	xmlns:tns="http://ponge.hr/pfa/axis/core" elementFormDefault="qualified"
+	attributeFormDefault="qualified" xmlns:pref="http://ponge.hr/pfa/axis/base">
+
+	<import schemaLocation="base.xsd" namespace="http://ponge.hr/pfa/axis/base"></import>
+
+
+
+
+
+	<complexType name="Document">
+		<sequence>
+			<element name="id" type="long" maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="description" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="documentForm" type="base64Binary" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="tenantName" type="string" maxOccurs="1"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="DocumentTemplate">
+		<sequence>
+			<element name="id" type="long" maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="description" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="documentForm" type="base64Binary" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="tenantName" type="string" maxOccurs="1"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="Picture">
+		<sequence>
+			<element name="id" type="long" maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="userId" type="long" maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="username" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="picByteSize" type="long" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="xsize" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="ysize" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="picture" type="base64Binary" maxOccurs="1"
+				minOccurs="0"></element>
+			<element name="md5Code" type="string" maxOccurs="1"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="PictureTemplate">
+	<sequence>
+			<element name="id" type="long" maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="tenantName" type="string" maxOccurs="1"
+				minOccurs="0"></element>
+			<element name="picByteSize" type="long" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="xsize" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="ysize" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="picture" type="base64Binary" maxOccurs="1"
+				minOccurs="0"></element>
+			<element name="md5Code" type="string" maxOccurs="1"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+</schema>

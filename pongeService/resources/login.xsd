@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pref="http://ponge.hr/pfa/axis/base" xmlns:tns="http://ponge.hr/pfa/axis/login" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ponge.hr/pfa/axis/login">
+    <import namespace="http://ponge.hr/pfa/axis/base" schemaLocation="base.xsd"/>
+    <element name="loginReq">
+        <complexType>
+            <sequence>
+                <element name="requestMeta" type="pref:RequestMetaData"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="loginResponse">
+        <complexType>
+            <sequence>
+                <element name="responseMeta" type="pref:ResponseMetaData"/>
+                <element minOccurs="0" name="error" type="pref:ErrorType"/>
+                <element maxOccurs="unbounded" minOccurs="0" name="resources" type="string"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://ponge.hr/pfa/axis/env"
+	xmlns:tns="http://ponge.hr/pfa/axis/env"
+	elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:pref="http://ponge.hr/pfa/axis/base">
+
+	<import schemaLocation="base.xsd" namespace="http://ponge.hr/pfa/axis/base"></import>
+
+	
+
+	<complexType name="User">
+		<sequence>
+			<element name="id" type="long" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="name" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="surname" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="username" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="address" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="dateOfBirth" type="date" maxOccurs="1" minOccurs="0"></element>
+			<element name="lastAccessTime" type="dateTime" maxOccurs="1" minOccurs="0"></element>
+			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="tenantName" type="string" maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="Tenant">
+		<sequence>
+			<element name="id" type="long" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="name" type="string" maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+</schema>

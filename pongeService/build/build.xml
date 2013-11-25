@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="PFA BUILD" default="all" basedir="..">
+
+	<target name="all" depends="remove_app,create-service,process_classes,package,copy">
+	</target>
+
+	<path id="classpath.xmltask">
+		<fileset dir="${basedir}/build/lib" includes="xmltask.jar" />
+	</path>
+	<taskdef name="xmltask" classpathref="classpath.xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask" />
+
+
+
+	<path id="classpath">
+		<fileset dir="${basedir}/lib" includes="**/*.jar" />
+		<pathelement path="bin" />
+		<pathelement path="resources" />
+	</path>
+
+
+	<property name="classname.axis2-wsdl2java" value="org.apache.axis2.wsdl.WSDL2Java" />
+
+
+	<target name="create-service">
+
+		<delete file="${basedir}/resources/services.xml">
+
+		</delete>
+		<delete dir="${basedir}/src/hr/ponge/pfa/axis">
+		</delete>
+
+		<java classname="org.apache.axis2.wsdl.WSDL2Java" classpathref="classpath" fork="true">
+			<arg line="-uri ${basedir}/wsdl/PfaService.wsdl" />
+			<arg line="--p hr.ponge.pfa.axis -o ${basedir} -d adb -s -wv 1.6.2 -ss -ssi -sd --noBuildXML" />
+		</java>
+
+
+
+		<xmltask source="${basedir}/resources/services.xml" dest="${basedir}/resources/services.xml">
+			<attr path="/serviceGroup/service" attr="class" value="hr.ponge.pfa.axisLocalService.PfaServiceStartupListener" />
+
+			<remove path="/serviceGroup/service/parameter[@name = 'useOriginalwsdl']" />
+			<remove path="/serviceGroup/service/parameter[@name = 'ServiceClass']" />
+			<insert path="/serviceGroup/service" position="under">
+				<![CDATA[<parameter name="useOriginalwsdl">false</parameter>]]>
+					    </insert>
+		<insert path="/serviceGroup/service" position="under">
+			<![CDATA[ <parameter name="ServiceClass">hr.ponge.pfa.axisLocalService.PfaServiceSkeleton</parameter>]]>
+		</insert>
+
+
+
+</xmltask>
+
+
+
+</target>
+
+
+<!-- *************************************************************** -->
+<!-- Compile the service. -->
+<!-- *************************************************************** -->
+<target name="compile">
+<delete dir="${basedir}/build/bin" />
+<mkdir dir="${basedir}/build/bin/classes" />
+<javac debug="true" debuglevel="lines,vars,source" verbose="true" srcdir="${basedir}/src" classpathref="classpath" destdir="${basedir}/build/bin/classes" />
+
+</target>
+
+<!-- *************************************************************** -->
+<!-- Compile the service. -->
+<!-- *************************************************************** -->
+<target name="package" depends="compile">
+<copy toDir="${basedir}/build/bin/classes/META-INF">
+	<fileset dir="${basedir}/resources">
+		<include name="services.xml" />
+		<include name="*.wsdl" />
+		<include name="*.xsd" />
+	</fileset>
+</copy>
+
+
+<copy toDir="/home/kruno/apache-tomcat-7.0.42/webapps/axis2/WEB-INF/classes">
+	<fileset dir="${basedir}/resources">
+		<include name="hibernate.cfg.xml" />
+		<include name="pfa.properties" />
+		<include name="binding.properties" />
+		<include name="operation_mapper.properties" />
+
+	</fileset>
+</copy>
+
+<mkdir dir="${basedir}/build/bin/classes/lib" />
+<copy toDir="${basedir}/build/bin/classes/lib">
+	<fileset dir="${basedir}/lib">
+		<include name="log4j.jar" />
+		<include name="commons-collections.jar" />
+		<include name="commons-configuration-1.6.jar" />
+		<include name="commons-lang-2.5.jar" />
+		<include name="hibernate-commons-annotations-4.0.1.Final.jar" />
+		<include name="hibernate-core-4.2.0.Final.jar" />
+		<include name="hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+		<include name="javassist-3.17.1-GA.jar" />
+		<include name="dom4j-1.6.1.jar" />
+		<include name="jboss-logging-3.1.0.GA.jar" />
+
+
+	</fileset>
+</copy>
+<jar destfile="${basedir}/pfa.aar">
+	<fileset dir="${basedir}/build/bin/classes" />
+</jar>
+</target>
+
+
+
+
+<!-- define spoon task -->
+<taskdef name="spoon" classname="spoon.SpoonTask" classpathref="classpath" />
+
+<target name="process_classes">
+
+<!-- process some files -->
+<spoon classpathref="classpath" verbose="true" output="${basedir}/src">
+	<sourceSet dir="${basedir}/src" includes="hr/ponge/pfa/axis/**" />
+
+	<processor type="hr.ponge.codeprocessor.ClassProcessor" />
+
+
+</spoon>
+</target>
+
+<target name="remove_app">
+<delete file="/home/kruno/apache-tomcat-7.0.42/webapps/axis2/WEB-INF/services/pfa.aar" failonerror="false">
+</delete>
+</target>
+
+
+<target name="copy">
+
+<!--
+<sleep milliseconds="5000" />
+-->
+
+
+<copy todir="/home/kruno/apache-tomcat-7.0.42/webapps/axis2/WEB-INF/services/">
+	<fileset dir="${basedir}">
+		<include name="pfa.aar" />
+	</fileset>
+
+</copy>
+
+</target>
+
+<target name="bring_up">
+
+<sql driver="org.postgresql.Driver" classpath="postgresql-8.3-607.jdbc3.jar" url="jdbc:postgresql://localhost/pfa" userid="orka" password="orka" autocommit="true">
+		ALTER SEQUENCE pfa_doc_template_sequence RESTART WITH 1000;
+		ALTER SEQUENCE pfa_document_sequence RESTART WITH 1000;
+		ALTER SEQUENCE pfa_picture_sequence RESTART WITH 1000;
+		ALTER SEQUENCE pfa_tenant_prop_sequence RESTART WITH 1000;
+		ALTER SEQUENCE pfa_tenant_sequence RESTART WITH 1000;
+		ALTER SEQUENCE pfa_user_sequence RESTART WITH 1000;
+		TRUNCATE TABLE pfa_tenant CASCADE;
+		TRUNCATE TABLE pfa_tenant_properties CASCADE;
+		TRUNCATE TABLE pfa_document CASCADE;
+		TRUNCATE TABLE pfa_document_template CASCADE;
+		TRUNCATE TABLE pfa_picture CASCADE;
+		TRUNCATE TABLE pfa_template_picture CASCADE;
+		TRUNCATE TABLE pfa_user CASCADE;
+		TRUNCATE TABLE pfa_user_properties CASCADE;
+		
+		INSERT INTO pfa_tenant_properties(id,creation_date,last_change_date)  VALUES (1,current_timestamp,current_timestamp);
+		INSERT INTO pfa_tenant (id,creation_date,last_change_date,tenant_name,tenant_properties_id) VALUES  (1,current_timestamp,current_timestamp,'PONGE', 1);
+		INSERT INTO pfa_user_properties (id,creation_date,last_change_date) VALUES (1,current_timestamp,current_timestamp);
+		INSERT INTO pfa_user_properties (id,creation_date,last_change_date) VALUES (2,current_timestamp,current_timestamp);
+			
+		
+		INSERT INTO pfa_user (id , creation_date ,last_change_date , address , date_of_birth ,last_access_time, username, users_password,surname , users_name,tenant_id,user_properties) 
+		VALUES  (1,current_timestamp,current_timestamp,'Sjenjak 5, 31000 Osijek','1979-01-01',current_timestamp,'test','test','Samardžić','Krunoslav',1 , 1);
+	INSERT INTO pfa_user (id , creation_date ,last_change_date , address , date_of_birth ,last_access_time, username, users_password,surname , users_name,tenant_id,user_properties) 
+			VALUES  (2,current_timestamp,current_timestamp,'Sjenjak 131, 31000 Osijek','1976-09-28',current_timestamp,'test1','test1','Samardžić','Damir',1 , 2);
+	 </sql>
+
+
+
+
+</target>
+
+
+
+
+</project>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ponge.hr/pfa/axis"
+	xmlns:impl="http://ponge.hr/pfa/axis" xmlns:apachesoap="http://xml.apache.org/xml-soap"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:intf="http://ponge.hr/pfa/axis">
+	<wsdl:types>
+		<schema elementFormDefault="qualified" targetNamespace="http://ponge.hr/pfa/axis"
+			xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pref="http://ponge.hr/pfa/axis/base"
+			xmlns:tns="http://ponge.hr/pfa/axis/core/operations" xmlns:pref2="http://ponge.hr/pfa/axis/env/operations">
+
+			<!-- ELEMENTS -->
+
+
+
+			<import schemaLocation="base.xsd" namespace="http://ponge.hr/pfa/axis/base">
+			</import>
+
+			<import schemaLocation="coreOperations.xsd"
+				namespace="http://ponge.hr/pfa/axis/core/operations">
+			</import>
+			<import schemaLocation="envOperations.xsd"
+				namespace="http://ponge.hr/pfa/axis/env/operations"></import>
+			<complexType name="EsoRequest">
+				<sequence>
+					<element name="metaData" type="pref:RequestMetaData"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<choice minOccurs="1" maxOccurs="1">
+						<element name="createUser" type="pref2:CreateUserReq">
+						</element>
+						<element name="readUser" type="pref2:ReadUserReq">
+						</element>
+						<element name="updateUser" type="pref2:UpdateUserReq">
+						</element>
+						<element name="deleteUser" type="pref2:DeleteUserReq">
+						</element>
+						<element name="createTenant" type="pref2:CreateTenantReq">
+						</element>
+						<element name="readTenant" type="pref2:ReadTenantReq">
+						</element>
+						<element name="updateTenant" type="pref2:UpdateTenantReq"></element>
+						<element name="deleteTenant" type="pref2:DeleteTenantReq"></element>
+					</choice>
+
+				</sequence>
+			</complexType>
+
+			<complexType name="EsoResponse">
+				<sequence>
+					<element name="metaData" type="pref:ResponseMetaData"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<choice maxOccurs="1" minOccurs="0">
+						<element name="createUser" type="pref2:CreateUserResp">
+						</element>
+						<element name="readUser" type="pref2:ReadUserResp">
+						</element>
+						<element name="updateUser" type="pref2:UpdateUserResp">
+						</element>
+						<element name="deleteUser" type="pref2:DeleteUserResp">
+						</element>
+						<element name="createTenant" type="pref2:CreateTenantResp"></element>
+						<element name="readTenant" type="pref2:ReadTenantResp">
+						</element>
+						<element name="updateTenant" type="pref2:UpdateTenantResp"></element>
+						<element name="deleteTenant" type="pref2:DeleteTenantResp"></element>
+
+					</choice>
+				</sequence>
+			</complexType>
+			<element name="entityOperations" type="impl:EsoRequest">
+			</element>
+			<element name="entityOperationsResponse" type="impl:EsoResponse">
+			</element>
+
+		</schema>
+
+	</wsdl:types>
+
+
+	<wsdl:message name="entityOperationsRequest">
+		<wsdl:part name="parameters" element="impl:entityOperations"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="entityOperationsResponse">
+		<wsdl:part name="parameters" element="impl:entityOperationsResponse"></wsdl:part>
+	</wsdl:message>
+
+	<wsdl:portType name="PfaServicePortType">
+		<wsdl:operation name="entityOperations">
+			<wsdl:input message="impl:entityOperationsRequest"></wsdl:input>
+			<wsdl:output message="impl:entityOperationsResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PfaServiceSoapBinding" type="impl:PfaServicePortType">
+		<wsdlsoap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="entityOperations">
+			<wsdlsoap:operation soapAction="http://ponge.hr/pfa/axis/entityOperations" />
+			<wsdl:input>
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PfaService">
+		<wsdl:port name="PfaService" binding="impl:PfaServiceSoapBinding">
+			<wsdlsoap:address location="http://localhost:8080/axis2/services/PfaService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

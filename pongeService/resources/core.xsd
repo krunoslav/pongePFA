@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pref="http://ponge.hr/pfa/axis/base" xmlns:tns="http://ponge.hr/pfa/axis/core" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ponge.hr/pfa/axis/core">
+    <import namespace="http://ponge.hr/pfa/axis/base" schemaLocation="base.xsd"/>
+    <complexType name="Document">
+        <sequence>
+            <element minOccurs="0" name="id" type="long"/>
+            <element minOccurs="0" name="description" type="string"/>
+            <element minOccurs="0" name="documentForm" type="base64Binary"/>
+            <element minOccurs="0" name="tenantId" type="long"/>
+            <element minOccurs="0" name="tenantName" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="DocumentTemplate">
+        <sequence>
+            <element minOccurs="0" name="id" type="long"/>
+            <element minOccurs="0" name="description" type="string"/>
+            <element minOccurs="0" name="documentForm" type="base64Binary"/>
+            <element minOccurs="0" name="tenantId" type="long"/>
+            <element minOccurs="0" name="tenantName" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="Picture">
+        <sequence>
+            <element minOccurs="0" name="id" type="long"/>
+            <element minOccurs="0" name="userId" type="long"/>
+            <element minOccurs="0" name="username" type="string"/>
+            <element minOccurs="0" name="picByteSize" type="long"/>
+            <element minOccurs="0" name="xsize" type="long"/>
+            <element minOccurs="0" name="ysize" type="long"/>
+            <element minOccurs="0" name="picture" type="base64Binary"/>
+            <element minOccurs="0" name="md5Code" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="PictureTemplate">
+        <sequence>
+            <element minOccurs="0" name="id" type="long"/>
+            <element minOccurs="0" name="tenantId" type="long"/>
+            <element minOccurs="0" name="tenantName" type="string"/>
+            <element minOccurs="0" name="picByteSize" type="long"/>
+            <element minOccurs="0" name="xsize" type="long"/>
+            <element minOccurs="0" name="ysize" type="long"/>
+            <element minOccurs="0" name="picture" type="base64Binary"/>
+            <element minOccurs="0" name="md5Code" type="string"/>
+        </sequence>
+    </complexType>
+</schema>

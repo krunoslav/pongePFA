@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pref="http://ponge.hr/pfa/axis/base" xmlns:pref1="http://ponge.hr/pfa/axis/env" xmlns:pref2="http://ponge.hr/pfa/axis/core" xmlns:tns="http://ponge.hr/pfa/axis/operations" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ponge.hr/pfa/axis/operations">
+    <import namespace="http://ponge.hr/pfa/axis/base" schemaLocation="base.xsd"/>
+    <import namespace="http://ponge.hr/pfa/axis/core" schemaLocation="core.xsd"/>
+    <import namespace="http://ponge.hr/pfa/axis/env" schemaLocation="envManagment.xsd"/>
+    <complexType name="PutPictureRequest">
+        <sequence>
+            <element maxOccurs="unbounded" name="pictures" type="pref2:Picture"/>
+        </sequence>
+    </complexType>
+    <complexType name="PutPictureResponse">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="pictures" type="pref2:Picture"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="errors" type="pref:ErrorType"/>
+        </sequence>
+    </complexType>
+    <complexType name="ReadUserRequest">
+        <sequence>
+            <element minOccurs="0" name="id" type="long"/>
+            <element minOccurs="0" name="tenantId" type="long"/>
+            <element minOccurs="0" name="username" type="string"/>
+            <element minOccurs="0" name="name" type="string"/>
+            <element minOccurs="0" name="surname" type="string"/>
+            <element minOccurs="0" name="address" type="string"/>
+            <element minOccurs="0" name="limits" type="pref:ReadOutLimits"/>
+        </sequence>
+    </complexType>
+    <complexType name="ReadUserResponse">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="users" type="pref1:User"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="errors" type="pref:ErrorType"/>
+        </sequence>
+    </complexType>
+</schema>

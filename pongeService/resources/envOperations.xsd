@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pref="http://ponge.hr/pfa/axis/env" xmlns:pref1="http://ponge.hr/pfa/axis/base" xmlns:tns="http://ponge.hr/pfa/axis/env/operations" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ponge.hr/pfa/axis/env/operations">
+    <import namespace="http://ponge.hr/pfa/axis/env" schemaLocation="envManagment.xsd"/>
+    <import namespace="http://ponge.hr/pfa/axis/base" schemaLocation="base.xsd"/>
+    <complexType name="ReadTenantReq">
+        <sequence>
+            <element minOccurs="0" name="id" type="long"/>
+            <element minOccurs="0" name="name" type="string"/>
+            <element minOccurs="0" name="limits" type="pref1:ReadOutLimits"/>
+        </sequence>
+    </complexType>
+    <complexType name="ReadTenantResp">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="tenants" type="pref:Tenant"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="errors" type="pref1:ErrorType"/>
+        </sequence>
+    </complexType>
+    <complexType name="CreateTenantReq">
+        <sequence>
+            <element name="tenant" type="pref:Tenant"/>
+        </sequence>
+    </complexType>
+    <complexType name="CreateTenantResp">
+        <sequence>
+            <element minOccurs="0" name="tenant" type="pref:Tenant"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="errors" type="pref1:ErrorType"/>
+        </sequence>
+    </complexType>
+    <complexType name="UpdateTenantReq">
+        <sequence>
+            <element name="tenant" type="pref:Tenant"/>
+        </sequence>
+    </complexType>
+    <complexType name="UpdateTenantResp">
+        <sequence>
+            <element minOccurs="0" name="tenant" type="pref:Tenant"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="errors" type="pref1:ErrorType"/>
+        </sequence>
+    </complexType>
+    <complexType name="DeleteTenantReq">
+        <sequence>
+            <element name="tenant" type="pref:Tenant"/>
+        </sequence>
+    </complexType>
+    <complexType name="DeleteTenantResp">
+        <sequence>
+            <element minOccurs="0" name="tenant" type="pref:Tenant"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="errors" type="pref1:ErrorType"/>
+        </sequence>
+    </complexType>
+    <complexType name="ReadUserReq">
+        <sequence>
+            <element minOccurs="0" name="id" type="long"/>
+            <element minOccurs="0" name="username" type="string"/>
+            <element minOccurs="0" name="name" type="string"/>
+            <element minOccurs="0" name="surname" type="string"/>
+            <element minOccurs="0" name="address" type="string"/>
+            <element minOccurs="0" name="tenantId" type="long"/>
+            <element minOccurs="0" name="limits" type="pref1:ReadOutLimits"/>
+        </sequence>
+    </complexType>
+    <complexType name="ReadUserResp">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="users" type="pref:User"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="errors" type="pref1:ErrorType"/>
+        </sequence>
+    </complexType>
+    <complexType name="CreateUserReq">
+        <sequence>
+            <element name="user" type="pref:User"/>
+        </sequence>
+    </complexType>
+    <complexType name="CreateUserResp">
+        <sequence>
+            <element minOccurs="0" name="user" type="pref:User"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="errors" type="pref1:ErrorType"/>
+        </sequence>
+    </complexType>
+    <complexType name="UpdateUserReq">
+        <sequence>
+            <element name="user" type="pref:User"/>
+        </sequence>
+    </complexType>
+    <complexType name="UpdateUserResp">
+        <sequence>
+            <element minOccurs="0" name="user" type="pref:User"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="errors" type="pref1:ErrorType"/>
+        </sequence>
+    </complexType>
+    <complexType name="DeleteUserReq">
+        <sequence>
+            <element name="user" type="pref:User"/>
+        </sequence>
+    </complexType>
+    <complexType name="DeleteUserResp">
+        <sequence>
+            <element minOccurs="0" name="user" type="pref:User"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="errors" type="pref1:ErrorType"/>
+        </sequence>
+    </complexType>
+</schema>

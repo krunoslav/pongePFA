@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ponge.hr/pfa/axis/core/operations"
+	xmlns:tns="http://ponge.hr/pfa/axis/core/operations"
+	elementFormDefault="qualified" attributeFormDefault="qualified"
+	xmlns:pref="http://ponge.hr/pfa/axis/core" xmlns:pref1="http://ponge.hr/pfa/axis/base">
+
+
+
+	<import schemaLocation="core.xsd" namespace="http://ponge.hr/pfa/axis/core">
+	</import>
+	<import schemaLocation="base.xsd" namespace="http://ponge.hr/pfa/axis/base"></import>
+	<complexType name="CreateDocumentReq">
+		<sequence>
+			<element name="document" type="pref:Document" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CreateDocumentResp">
+		<sequence>
+			<element name="document" type="pref:Document" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="ReadDocumentReq">
+		<sequence>
+			<element name="id" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="description" type="string" maxOccurs="1"
+				minOccurs="0"></element>
+			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="ReadDocumentResp">
+		<sequence>
+			<element name="document" type="pref:Document" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="UpdateDocumentReq">
+		<sequence>
+			<element name="document" type="pref:Document" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+	<complexType name="UpdateDocumentResp">
+		<sequence>
+			<element name="document" type="pref:Document" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+
+	</complexType>
+	<complexType name="DeleteDocumentReq">
+		<sequence>
+			<element name="document" type="pref:Document" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+	<complexType name="DeleteDocumentResp">
+		<sequence>
+			<element name="document" type="pref:Document" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+
+	</complexType>
+
+
+	<complexType name="CreateDocumentTmplReq">
+		<sequence>
+			<element name="documentTmpl" type="pref:DocumentTemplate"
+				maxOccurs="1" minOccurs="1"></element>
+		</sequence>
+
+	</complexType>
+	<complexType name="CreateDocumentTmplResp">
+		<sequence>
+			<element name="documentTmpl" type="pref:DocumentTemplate"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+
+	</complexType>
+	<complexType name="ReadDocumentTmplReq">
+		<sequence>
+			<element name="id" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="description" type="string" maxOccurs="1"
+				minOccurs="0"></element>
+			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+
+	</complexType>
+	<complexType name="ReadDocumentTmplResp">
+		<sequence>
+			<element name="documentTmpl" type="pref:DocumentTemplate"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+
+	</complexType>
+	<complexType name="UpdateDocumentTmplReq">
+		<sequence>
+			<element name="documentTmpl" type="pref:DocumentTemplate"
+				maxOccurs="1" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+	<complexType name="UpdateDocumentTmplResp">
+		<sequence>
+			<element name="documentTmpl" type="pref:DocumentTemplate"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="DeleteDocumentTmplReq">
+		<sequence>
+			<element name="documentTmpl" type="pref:DocumentTemplate"
+				maxOccurs="1" minOccurs="1"></element>
+		</sequence>
+
+	</complexType>
+	<complexType name="DeleteDocumentTmplResp">
+		<sequence>
+			<element name="documentTmpl" type="pref:DocumentTemplate"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+
+
+	</complexType>
+	
+	
+	<complexType name="CreatePictureReq">
+		<sequence>
+			<element name="picture" type="pref:Picture" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CreatePictureResp">
+		<sequence>
+			<element name="picture" type="pref:Picture" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="ReadPictureReq">
+		<sequence>
+			<element name="id" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="userId" type="long" maxOccurs="1"
+				minOccurs="0"></element>
+			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="ReadPictureResp">
+		<sequence>
+			<element name="picture" type="pref:Picture" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="UpdatePictureReq">
+		<sequence>
+			<element name="picture" type="pref:Picture" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+	<complexType name="UpdatePictureResp">
+		<sequence>
+			<element name="picture" type="pref:Picture" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+
+	</complexType>
+	<complexType name="DeletePictureReq">
+		<sequence>
+			<element name="picture" type="pref:Picture" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+	<complexType name="DeletePictureResp">
+		<sequence>
+			<element name="picture" type="pref:Picture" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+
+	</complexType>
+	
+	
+	<complexType name="CreatePictureTmplReq">
+		<sequence>
+			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CreatePictureTmplResp">
+		<sequence>
+			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="ReadPictureTmplReq">
+		<sequence>
+			<element name="id" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="ReadPictureTmplResp">
+		<sequence>
+			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="UpdatePictureTmplReq">
+		<sequence>
+			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+	<complexType name="UpdatePictureTmplResp">
+		<sequence>
+			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+
+	</complexType>
+	<complexType name="DeletePictureTmplReq">
+		<sequence>
+			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+	<complexType name="DeletePictureTmplResp">
+		<sequence>
+			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+
+	</complexType>
+	
+	
+	
+</schema>
