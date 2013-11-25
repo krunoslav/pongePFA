@@ -119,6 +119,34 @@ public class User implements hr.ponge.pfa.service.env.user.UserDTO , org.apache.
     }
     
     /** 
+     * field for Password
+     */
+    protected java.lang.String localPassword;
+    
+    protected boolean localPasswordTracker = false;
+    
+    public boolean isPasswordSpecified() {
+        return localPasswordTracker;
+    }
+    
+    /** 
+     * Auto generated getter method
+     * @return java.lang.String
+     */
+    public java.lang.String getPassword() {
+        return localPassword;
+    }
+    
+    /** 
+     * Auto generated setter method
+     * @param param Password
+     */
+    public void setPassword(java.lang.String param) {
+        localPasswordTracker = param != null;
+        this.localPassword = param;
+    }
+    
+    /** 
      * field for Address
      */
     protected java.lang.String localAddress;
@@ -324,6 +352,16 @@ public class User implements hr.ponge.pfa.service.env.user.UserDTO , org.apache.
                 throw new org.apache.axis2.databinding.ADBException("username cannot be null!!");
             } else {
                 xmlWriter.writeCharacters(localUsername);
+            }
+            xmlWriter.writeEndElement();
+        } 
+        if (localPasswordTracker) {
+            namespace = "http://ponge.hr/pfa/axis/env";
+            writeStartElement(null ,namespace ,"password" ,xmlWriter);
+            if ((localPassword) == null) {
+                throw new org.apache.axis2.databinding.ADBException("password cannot be null!!");
+            } else {
+                xmlWriter.writeCharacters(localPassword);
             }
             xmlWriter.writeEndElement();
         } 
@@ -559,6 +597,14 @@ public class User implements hr.ponge.pfa.service.env.user.UserDTO , org.apache.
                 throw new org.apache.axis2.databinding.ADBException("username cannot be null!!");
             }
         } 
+        if (localPasswordTracker) {
+            elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/env" , "password"));
+            if ((localPassword) != null) {
+                elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPassword));
+            } else {
+                throw new org.apache.axis2.databinding.ADBException("password cannot be null!!");
+            }
+        } 
         if (localAddressTracker) {
             elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/env" , "address"));
             if ((localAddress) != null) {
@@ -681,6 +727,18 @@ public class User implements hr.ponge.pfa.service.env.user.UserDTO , org.apache.
                     } 
                     java.lang.String content = reader.getElementText();
                     object.setUsername(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                    reader.next();
+                } else {
+                }
+                while ((!(reader.isStartElement())) && (!(reader.isEndElement())))
+                    reader.next();
+                if ((reader.isStartElement()) && (new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/env" , "password").equals(reader.getName()))) {
+                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance" ,"nil");
+                    if (("true".equals(nillableValue)) || ("1".equals(nillableValue))) {
+                        throw new org.apache.axis2.databinding.ADBException(("The element: " + ("password" + "  cannot be null")));
+                    } 
+                    java.lang.String content = reader.getElementText();
+                    object.setPassword(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                     reader.next();
                 } else {
                 }

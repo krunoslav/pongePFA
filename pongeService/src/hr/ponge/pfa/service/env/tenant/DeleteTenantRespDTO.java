@@ -1,22 +1,14 @@
 package hr.ponge.pfa.service.env.tenant;
 
-import hr.ponge.pfa.service.base.ErrorType;
+import hr.ponge.pfa.service.base.ResponseDto;
 import hr.ponge.util.ProxyMethod;
 
-public interface DeleteTenantRespDTO {
-	
+public interface DeleteTenantRespDTO extends ResponseDto {
+
 	@ProxyMethod(origMethod = "getTenant")
 	public TenantDTO getTenant_();
 
 	@ProxyMethod(origMethod = "setTenant")
 	public void setTenant_(TenantDTO tenantDTO);
 
-	@ProxyMethod(origMethod = "getErrors")
-	public ErrorType[] getErrors_();
-
-	@ProxyMethod(origMethod = "setErrors")
-	public void setErrors_(ErrorType[] param);
-
-	@ProxyMethod(origMethod = "addErrors")
-	public void addErrors_(ErrorType param);
 }

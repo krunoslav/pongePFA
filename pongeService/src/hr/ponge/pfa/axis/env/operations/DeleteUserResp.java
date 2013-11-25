@@ -390,14 +390,6 @@ public class DeleteUserResp implements hr.ponge.pfa.service.env.user.DeleteUserR
         
     }
     
-    public void setUser_(hr.ponge.pfa.service.env.user.UserDTO arg) {
-        setUser((hr.ponge.pfa.axis.env.User)arg);
-    }
-    
-    public hr.ponge.pfa.service.env.user.UserDTO getUser_() {
-        return getUser();
-    }
-    
     public void addErrors_(hr.ponge.pfa.service.base.ErrorType arg) {
         addErrors((hr.ponge.pfa.axis.base.ErrorType)arg);
     }
@@ -408,6 +400,14 @@ public class DeleteUserResp implements hr.ponge.pfa.service.env.user.DeleteUserR
     
     public hr.ponge.pfa.service.base.ErrorType[] getErrors_() {
         return getErrors();
+    }
+    
+    public void setUser_(hr.ponge.pfa.service.env.user.UserDTO arg) {
+        setUser((hr.ponge.pfa.axis.env.User)arg);
+    }
+    
+    public hr.ponge.pfa.service.env.user.UserDTO getUser_() {
+        return getUser();
     }
     
 }

@@ -1,8 +1,9 @@
 package hr.ponge.pfa.service.env.user;
 
+import hr.ponge.pfa.service.base.RequestDto;
 import hr.ponge.util.ProxyMethod;
 
-public interface UpdateUserReqDTO {
+public interface UpdateUserReqDTO extends RequestDto {
 
 	@ProxyMethod(origMethod = "getUser")
 	public UserDTO getUser_();

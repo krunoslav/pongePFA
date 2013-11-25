@@ -18,6 +18,93 @@ public class UserBL {
 	@BusinessLogicMethod
 	public void createUser(CreateUserReqDTO req, CreateUserRespDTO resp)
 			throws PfaException {
+		validateCreateUser(req, resp);
+		if (resp.getErrors_() != null && resp.getErrors_().length > 0) {
+			return;
+		}
+
+	}
+
+	private void validateCreateUser(CreateUserReqDTO req, CreateUserRespDTO resp) {
+		if (req.getUser_().isNameSpecified()) {
+			if (req.getUser_().getName().length() < 3) {
+				ErrorType er = PfaSingleton.getReference().createObject(
+						ErrorType.class);
+				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
+				er.setErrorMessageKey("fieldMinChars");
+				String[] param = new String[] { "name", "3" };
+				er.setErrorParams(param);
+				resp.addErrors_(er);
+			}
+		} else {
+			ErrorType er = PfaSingleton.getReference().createObject(
+					ErrorType.class);
+			er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
+			er.setErrorMessageKey("fieldNotSpecified");
+			String[] param = new String[] { "name" };
+			er.setErrorParams(param);
+			resp.addErrors_(er);
+		}
+
+		if (req.getUser_().isSurnameSpecified()) {
+			if (req.getUser_().getSurname().length() < 3) {
+				ErrorType er = PfaSingleton.getReference().createObject(
+						ErrorType.class);
+				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
+				er.setErrorMessageKey("fieldMinChars");
+				String[] param = new String[] { "surname", "3" };
+				er.setErrorParams(param);
+				resp.addErrors_(er);
+			}
+		} else {
+			ErrorType er = PfaSingleton.getReference().createObject(
+					ErrorType.class);
+			er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
+			er.setErrorMessageKey("fieldNotSpecified");
+			String[] param = new String[] { "surname" };
+			er.setErrorParams(param);
+			resp.addErrors_(er);
+		}
+
+		if (req.getUser_().isUsernameSpecified()) {
+			if (req.getUser_().getSurname().length() < 5) {
+				ErrorType er = PfaSingleton.getReference().createObject(
+						ErrorType.class);
+				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
+				er.setErrorMessageKey("fieldMinChars");
+				String[] param = new String[] { "username", "5" };
+				er.setErrorParams(param);
+				resp.addErrors_(er);
+			}
+		} else {
+			ErrorType er = PfaSingleton.getReference().createObject(
+					ErrorType.class);
+			er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
+			er.setErrorMessageKey("fieldNotSpecified");
+			String[] param = new String[] { "username" };
+			er.setErrorParams(param);
+			resp.addErrors_(er);
+		}
+		
+		if (req.getUser_().isPasswordSpecified()) {
+			if (req.getUser_().getSurname().length() < 5) {
+				ErrorType er = PfaSingleton.getReference().createObject(
+						ErrorType.class);
+				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
+				er.setErrorMessageKey("fieldMinChars");
+				String[] param = new String[] { "username", "5" };
+				er.setErrorParams(param);
+				resp.addErrors_(er);
+			}
+		} else {
+			ErrorType er = PfaSingleton.getReference().createObject(
+					ErrorType.class);
+			er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
+			er.setErrorMessageKey("fieldNotSpecified");
+			String[] param = new String[] { "username" };
+			er.setErrorParams(param);
+			resp.addErrors_(er);
+		}
 
 	}
 

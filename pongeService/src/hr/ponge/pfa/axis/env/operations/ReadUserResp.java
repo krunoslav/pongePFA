@@ -442,18 +442,6 @@ public class ReadUserResp implements hr.ponge.pfa.service.env.user.ReadUserRespD
         
     }
     
-    public void setUsers_(hr.ponge.pfa.service.env.user.UserDTO[] arg) {
-        setUsers((hr.ponge.pfa.axis.env.User[])arg);
-    }
-    
-    public hr.ponge.pfa.service.env.user.UserDTO[] getUsers_() {
-        return getUsers();
-    }
-    
-    public void addUsers_(hr.ponge.pfa.service.env.user.UserDTO arg) {
-        addUsers((hr.ponge.pfa.axis.env.User)arg);
-    }
-    
     public void addErrors_(hr.ponge.pfa.service.base.ErrorType arg) {
         addErrors((hr.ponge.pfa.axis.base.ErrorType)arg);
     }
@@ -464,6 +452,18 @@ public class ReadUserResp implements hr.ponge.pfa.service.env.user.ReadUserRespD
     
     public hr.ponge.pfa.service.base.ErrorType[] getErrors_() {
         return getErrors();
+    }
+    
+    public void setUsers_(hr.ponge.pfa.service.env.user.UserDTO[] arg) {
+        setUsers((hr.ponge.pfa.axis.env.User[])arg);
+    }
+    
+    public hr.ponge.pfa.service.env.user.UserDTO[] getUsers_() {
+        return getUsers();
+    }
+    
+    public void addUsers_(hr.ponge.pfa.service.env.user.UserDTO arg) {
+        addUsers((hr.ponge.pfa.axis.env.User)arg);
     }
     
 }

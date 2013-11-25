@@ -442,18 +442,6 @@ public class ReadTenantResp implements hr.ponge.pfa.service.env.tenant.ReadTenan
         
     }
     
-    public void addUsers_(hr.ponge.pfa.service.env.tenant.TenantDTO arg) {
-        addTenants((hr.ponge.pfa.axis.env.Tenant)arg);
-    }
-    
-    public void setTenants_(hr.ponge.pfa.service.env.tenant.TenantDTO[] arg) {
-        setTenants((hr.ponge.pfa.axis.env.Tenant[])arg);
-    }
-    
-    public hr.ponge.pfa.service.env.tenant.TenantDTO[] getTenants_() {
-        return getTenants();
-    }
-    
     public void addErrors_(hr.ponge.pfa.service.base.ErrorType arg) {
         addErrors((hr.ponge.pfa.axis.base.ErrorType)arg);
     }
@@ -464,6 +452,18 @@ public class ReadTenantResp implements hr.ponge.pfa.service.env.tenant.ReadTenan
     
     public hr.ponge.pfa.service.base.ErrorType[] getErrors_() {
         return getErrors();
+    }
+    
+    public void addUsers_(hr.ponge.pfa.service.env.tenant.TenantDTO arg) {
+        addTenants((hr.ponge.pfa.axis.env.Tenant)arg);
+    }
+    
+    public void setTenants_(hr.ponge.pfa.service.env.tenant.TenantDTO[] arg) {
+        setTenants((hr.ponge.pfa.axis.env.Tenant[])arg);
+    }
+    
+    public hr.ponge.pfa.service.env.tenant.TenantDTO[] getTenants_() {
+        return getTenants();
     }
     
 }

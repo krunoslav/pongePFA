@@ -18,6 +18,7 @@
 			</element>
 			<element name="surname" type="string" maxOccurs="1" minOccurs="0"></element>
 			<element name="username" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="password" type="string" maxOccurs="1" minOccurs="0"></element>
 			<element name="address" type="string" maxOccurs="1" minOccurs="0"></element>
 			<element name="dateOfBirth" type="date" maxOccurs="1" minOccurs="0"></element>
 			<element name="lastAccessTime" type="dateTime" maxOccurs="1" minOccurs="0"></element>

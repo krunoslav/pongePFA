@@ -1,8 +1,9 @@
 package hr.ponge.pfa.service.env.tenant;
 
+import hr.ponge.pfa.service.base.RequestDto;
 import hr.ponge.util.ProxyMethod;
 
-public interface UpdateTenantReqDTO {
+public interface UpdateTenantReqDTO extends RequestDto {
 
 	@ProxyMethod(origMethod = "getTenant")
 	public TenantDTO getTenant_();
