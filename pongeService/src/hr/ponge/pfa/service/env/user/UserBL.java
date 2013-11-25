@@ -105,6 +105,16 @@ public class UserBL {
 			er.setErrorParams(param);
 			resp.addErrors_(er);
 		}
+		
+		if (!req.getUser_().isTenantIdSpecified()) {
+			ErrorType er = PfaSingleton.getReference().createObject(
+					ErrorType.class);
+			er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
+			er.setErrorMessageKey("fieldNotSpecified");
+			String[] param = new String[] { "tenantId" };
+			er.setErrorParams(param);
+			resp.addErrors_(er);
+		}
 
 	}
 
