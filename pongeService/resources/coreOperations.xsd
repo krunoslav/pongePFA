@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pref="http://ponge.hr/pfa/axis/core" xmlns:pref1="http://ponge.hr/pfa/axis/base" xmlns:tns="http://ponge.hr/pfa/axis/core/operations" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ponge.hr/pfa/axis/core/operations">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pref="http://ponge.hr/pfa/axis/core" xmlns:pref1="http://ponge.hr/pfa/axis/base" xmlns:tns="http://ponge.hr/pfa/axis/core/operations" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ponge.hr/pfa/axis/core/operations">
     <import namespace="http://ponge.hr/pfa/axis/core" schemaLocation="core.xsd"/>
     <import namespace="http://ponge.hr/pfa/axis/base" schemaLocation="base.xsd"/>
     <complexType name="CreateDocumentReq">

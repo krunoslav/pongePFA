@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pref="http://ponge.hr/pfa/axis/env" xmlns:pref1="http://ponge.hr/pfa/axis/base" xmlns:tns="http://ponge.hr/pfa/axis/env/operations" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ponge.hr/pfa/axis/env/operations">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:pref="http://ponge.hr/pfa/axis/env" xmlns:pref1="http://ponge.hr/pfa/axis/base" xmlns:tns="http://ponge.hr/pfa/axis/env/operations" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ponge.hr/pfa/axis/env/operations">
     <import namespace="http://ponge.hr/pfa/axis/env" schemaLocation="envManagment.xsd"/>
     <import namespace="http://ponge.hr/pfa/axis/base" schemaLocation="base.xsd"/>
     <complexType name="ReadTenantReq">

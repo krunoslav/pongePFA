@@ -1,53 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema targetNamespace="http://ponge.hr/pfa/axis/base" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ponge.hr/pfa/axis/base" attributeFormDefault="qualified">
+<schema targetNamespace="http://ponge.hr/pfa/axis/base"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://ponge.hr/pfa/axis/base">
 
 
-    <complexType name="ErrorType">
-    	<sequence>
-    		<element name="errorCode" type="string" maxOccurs="1"
-    			minOccurs="1">
-    		</element>
-    		<element name="errorMessageKey" type="string" maxOccurs="1"
-    			minOccurs="0">
-    		</element>
-    		<element name="errorParams" type="string" maxOccurs="unbounded" minOccurs="0"></element>
-    	</sequence>
-    </complexType>
+	<complexType name="ErrorType">
+		<sequence>
+			<element name="errorCode" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="errorMessageKey" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="errorParams" type="string" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+			<element name="stackTrace" type="string" maxOccurs="1"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
 
-    <complexType name="RequestMetaData">
-    	<sequence>
-    		<element name="requestId" type="string" maxOccurs="1"
-    			minOccurs="1">
-    		</element>
-    		<element name="username" type="string" maxOccurs="1"
-    			minOccurs="1">
-    		</element>
-    		<element name="password" type="string" maxOccurs="1"
-    			minOccurs="1">
-    		</element>
-    		<element name="clientVersion" type="string" maxOccurs="1"
-    			minOccurs="1">
-    		</element>
-    		<element name="operation" type="string" maxOccurs="1" minOccurs="1"></element>
-    	</sequence>
-    </complexType>
+	<complexType name="RequestMetaData">
+		<sequence>
+			<element name="requestId" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="username" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="password" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="clientVersion" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="operation" type="string" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
 
-    <complexType name="ResponseMetaData">
-    	<sequence>
-    		<element name="requestId" type="string" maxOccurs="1"
-    			minOccurs="1">
-    		</element>
-    		<element name="operation" type="string" maxOccurs="1"
-    			minOccurs="1">
-    		</element>
-    		<element name="error" type="tns:ErrorType" maxOccurs="1" minOccurs="0"></element>
-    	</sequence>
-    </complexType>
+	<complexType name="ResponseMetaData">
+		<sequence>
+			<element name="requestId" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="operation" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="error" type="tns:ErrorType" maxOccurs="1"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
 
-    <complexType name="ReadOutLimits">
-    	<sequence>
-    		<element name="firstRecord" type="int" maxOccurs="1" minOccurs="1"></element>
-    		<element name="maxRecords" type="int" maxOccurs="1" minOccurs="1"></element>
-    	</sequence>
-    </complexType>
+	<complexType name="ReadOutLimits">
+		<sequence>
+			<element name="firstRecord" type="int" maxOccurs="1"
+				minOccurs="1"></element>
+			<element name="maxRecords" type="int" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
 </schema>

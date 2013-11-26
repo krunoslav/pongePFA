@@ -14,6 +14,9 @@ import hr.ponge.pfa.service.env.user.UserBL;
 import hr.ponge.util.HibernateUtil;
 import hr.ponge.util.PfaSingleton;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -80,6 +83,13 @@ public class PfaServiceSkeleton implements
 			error.setErrorMessageKey(e.getErrorMsgKey());
 			error.setErrorParams(e.getErrorParams().toArray(
 					new String[e.getErrorParams().size()]));
+			
+			final Writer result = new StringWriter();
+			final PrintWriter printWriter = new PrintWriter(result);
+			e.printStackTrace(printWriter);
+			String trace = result.toString();
+			error.setStackTrace(trace);
+			
 		} catch (Exception e) {
 			log.error("ERROR", e);
 			try {
@@ -88,6 +98,11 @@ public class PfaServiceSkeleton implements
 				meta.setError(error);
 				error.setErrorCode(hr.ponge.pfa.PfaException.GENERAL_ERROR);
 				error.setErrorMessageKey(e.getMessage());
+				final Writer result = new StringWriter();
+				final PrintWriter printWriter = new PrintWriter(result);
+				e.printStackTrace(printWriter);
+				String trace = result.toString();
+				error.setStackTrace(trace);
 			} catch (PfaException e1) {
 				throw new RuntimeException(e1);
 			}
@@ -116,7 +131,7 @@ public class PfaServiceSkeleton implements
 
 		} catch (InvocationTargetException e) {
 			throw new PfaException(PfaException.ERROR_CALL_BL_METHOD,
-					"InvocationTargetException", e);
+					"errorInBussinesLogic", e);
 
 		} 
 
@@ -155,7 +170,7 @@ public class PfaServiceSkeleton implements
 
 	private RequestDto pullRequestFromEso(EsoRequestChoice_type0 esoChoice,
 			String operation) throws IllegalArgumentException,
-			IllegalAccessException, InvocationTargetException {
+			IllegalAccessException, InvocationTargetException, PfaException {
 		RequestDto req = null;
 		Method[] meths = esoChoice.getClass().getMethods();
 		String geter = "get" + operation.substring(0, 1).toUpperCase()
@@ -165,6 +180,9 @@ public class PfaServiceSkeleton implements
 				Object o = m.invoke(esoChoice, new Object[0]);
 				req = (RequestDto) o;
 			}
+		}
+		if(req==null) {
+			throw new PfaException(PfaException.ERROR_CALL_BL_METHOD, "operationRequestNull");
 		}
 		return req;
 	}

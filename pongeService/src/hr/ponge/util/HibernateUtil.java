@@ -27,6 +27,8 @@ public class HibernateUtil {
 
 	public static final ThreadLocal<Transaction> threadTransaction = new ThreadLocal<Transaction>();
 
+	public static final ThreadLocal<String> transactionOwner = new ThreadLocal<String>();
+
 	public static void buildSessionFactory() {
 
 		try {
@@ -76,14 +78,16 @@ public class HibernateUtil {
 		}
 	}
 
-	public void beginTransaction() throws PfaException {
+	public boolean beginTransaction() throws PfaException {
 		try {
 			Transaction tx = threadTransaction.get();
 
 			if (tx == null) {
 				tx = getSession().beginTransaction();
 				threadTransaction.set(tx);
+				return true;
 			}
+			return false;
 		} catch (PfaException e) {
 			throw e;
 

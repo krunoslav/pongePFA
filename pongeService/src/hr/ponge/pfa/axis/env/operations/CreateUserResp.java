@@ -395,7 +395,11 @@ public class CreateUserResp implements hr.ponge.pfa.service.env.user.CreateUserR
     }
     
     public void setErrors_(hr.ponge.pfa.service.base.ErrorType[] arg) {
-        setErrors((hr.ponge.pfa.axis.base.ErrorType[])arg);
+        hr.ponge.pfa.axis.base.ErrorType[] er = new hr.ponge.pfa.axis.base.ErrorType[arg.length];
+ for(int i=0;i<arg.length;i++){ 
+     er[i]=(hr.ponge.pfa.axis.base.ErrorType) arg[i]; 
+ }
+setErrors(er);
     }
     
     public hr.ponge.pfa.service.base.ErrorType[] getErrors_() {

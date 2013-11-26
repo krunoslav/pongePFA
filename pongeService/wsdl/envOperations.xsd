@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ponge.hr/pfa/axis/env/operations"
-	xmlns:tns="http://ponge.hr/pfa/axis/env/operations" elementFormDefault="qualified"
-	attributeFormDefault="qualified" xmlns:pref="http://ponge.hr/pfa/axis/env"
-	xmlns:pref1="http://ponge.hr/pfa/axis/base">
+	xmlns:tns="http://ponge.hr/pfa/axis/env/operations" xmlns:pref="http://ponge.hr/pfa/axis/env"
+	xmlns:pref1="http://ponge.hr/pfa/axis/base" elementFormDefault="qualified">
 	<import schemaLocation="envManagment.xsd" namespace="http://ponge.hr/pfa/axis/env">
 	</import>
 	<import schemaLocation="base.xsd" namespace="http://ponge.hr/pfa/axis/base"></import>

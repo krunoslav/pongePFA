@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ponge.hr/pfa/axis/core/operations"
 	xmlns:tns="http://ponge.hr/pfa/axis/core/operations"
-	elementFormDefault="qualified" attributeFormDefault="qualified"
-	xmlns:pref="http://ponge.hr/pfa/axis/core" xmlns:pref1="http://ponge.hr/pfa/axis/base">
+	elementFormDefault="qualified" xmlns:pref="http://ponge.hr/pfa/axis/core"
+	xmlns:pref1="http://ponge.hr/pfa/axis/base">
 
 
 
@@ -144,8 +144,8 @@
 
 
 	</complexType>
-	
-	
+
+
 	<complexType name="CreatePictureReq">
 		<sequence>
 			<element name="picture" type="pref:Picture" maxOccurs="1"
@@ -164,8 +164,7 @@
 	<complexType name="ReadPictureReq">
 		<sequence>
 			<element name="id" type="long" maxOccurs="1" minOccurs="0"></element>
-			<element name="userId" type="long" maxOccurs="1"
-				minOccurs="0"></element>
+			<element name="userId" type="long" maxOccurs="1" minOccurs="0"></element>
 			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
 		</sequence>
 	</complexType>
@@ -210,18 +209,18 @@
 		</sequence>
 
 	</complexType>
-	
-	
+
+
 	<complexType name="CreatePictureTmplReq">
 		<sequence>
-			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="1"
-				minOccurs="1"></element>
+			<element name="pictureTmpl" type="pref:PictureTemplate"
+				maxOccurs="1" minOccurs="1"></element>
 		</sequence>
 	</complexType>
 	<complexType name="CreatePictureTmplResp">
 		<sequence>
-			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="1"
-				minOccurs="0">
+			<element name="pictureTmpl" type="pref:PictureTemplate"
+				maxOccurs="1" minOccurs="0">
 			</element>
 			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
 				minOccurs="0"></element>
@@ -235,8 +234,8 @@
 	</complexType>
 	<complexType name="ReadPictureTmplResp">
 		<sequence>
-			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="unbounded"
-				minOccurs="0">
+			<element name="pictureTmpl" type="pref:PictureTemplate"
+				maxOccurs="unbounded" minOccurs="0">
 			</element>
 			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
 				minOccurs="0"></element>
@@ -244,14 +243,14 @@
 	</complexType>
 	<complexType name="UpdatePictureTmplReq">
 		<sequence>
-			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="1"
-				minOccurs="1"></element>
+			<element name="pictureTmpl" type="pref:PictureTemplate"
+				maxOccurs="1" minOccurs="1"></element>
 		</sequence>
 	</complexType>
 	<complexType name="UpdatePictureTmplResp">
 		<sequence>
-			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="1"
-				minOccurs="0">
+			<element name="pictureTmpl" type="pref:PictureTemplate"
+				maxOccurs="1" minOccurs="0">
 			</element>
 			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
 				minOccurs="0"></element>
@@ -260,21 +259,21 @@
 	</complexType>
 	<complexType name="DeletePictureTmplReq">
 		<sequence>
-			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="1"
-				minOccurs="1"></element>
+			<element name="pictureTmpl" type="pref:PictureTemplate"
+				maxOccurs="1" minOccurs="1"></element>
 		</sequence>
 	</complexType>
 	<complexType name="DeletePictureTmplResp">
 		<sequence>
-			<element name="pictureTmpl" type="pref:PictureTemplate" maxOccurs="1"
-				minOccurs="0">
+			<element name="pictureTmpl" type="pref:PictureTemplate"
+				maxOccurs="1" minOccurs="0">
 			</element>
 			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
 				minOccurs="0"></element>
 		</sequence>
 
 	</complexType>
-	
-	
-	
+
+
+
 </schema>

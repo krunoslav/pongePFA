@@ -87,7 +87,8 @@
 
 	<wsdl:portType name="PfaServicePortType">
 		<wsdl:operation name="entityOperations">
-			<wsdl:input message="impl:entityOperationsRequest"></wsdl:input>
+			<wsdl:input message="impl:entityOperationsRequest">
+				<wsdl:documentation></wsdl:documentation></wsdl:input>
 			<wsdl:output message="impl:entityOperationsResponse"></wsdl:output>
 		</wsdl:operation>
 	</wsdl:portType>

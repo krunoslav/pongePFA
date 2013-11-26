@@ -447,7 +447,11 @@ public class ReadTenantResp implements hr.ponge.pfa.service.env.tenant.ReadTenan
     }
     
     public void setErrors_(hr.ponge.pfa.service.base.ErrorType[] arg) {
-        setErrors((hr.ponge.pfa.axis.base.ErrorType[])arg);
+        hr.ponge.pfa.axis.base.ErrorType[] er = new hr.ponge.pfa.axis.base.ErrorType[arg.length];
+ for(int i=0;i<arg.length;i++){ 
+     er[i]=(hr.ponge.pfa.axis.base.ErrorType) arg[i]; 
+ }
+setErrors(er);
     }
     
     public hr.ponge.pfa.service.base.ErrorType[] getErrors_() {
@@ -459,7 +463,11 @@ public class ReadTenantResp implements hr.ponge.pfa.service.env.tenant.ReadTenan
     }
     
     public void setTenants_(hr.ponge.pfa.service.env.tenant.TenantDTO[] arg) {
-        setTenants((hr.ponge.pfa.axis.env.Tenant[])arg);
+        hr.ponge.pfa.axis.env.Tenant[] er = new hr.ponge.pfa.axis.env.Tenant[arg.length];
+ for(int i=0;i<arg.length;i++){ 
+     er[i]=(hr.ponge.pfa.axis.env.Tenant) arg[i]; 
+ }
+setTenants(er);
     }
     
     public hr.ponge.pfa.service.env.tenant.TenantDTO[] getTenants_() {

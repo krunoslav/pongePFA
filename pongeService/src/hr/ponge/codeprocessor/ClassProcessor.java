@@ -180,10 +180,23 @@ public class ClassProcessor extends AbstractProcessor<CtClass<?>> {
 					String key = pfaObject.getName().substring(2,
 							pfaObject.getName().length() - 1);
 					axisObj = reverseProperties.get(key);
-					axisObj = axisObj + "[]";
+					//axisObj = axisObj + "[]";
+					
+					//hr.ponge.pfa.axis.base.ErrorType[] er= new hr.ponge.pfa.axis.base.ErrorType[arg.length];
+					String code=axisObj + "[] er = new "+axisObj+"[arg.length];\n";
+					code=code+" for(int i=0;i<arg.length;i++){ \n";
+					code=code+"     er[i]=("+axisObj+") arg[i]; \n";
+					code=code+" }\n";
+					code=code+m.getAnnotation(ProxyMethod.class)
+							.origMethod() + "(er)";
+					snippet.setValue(code );
+					
 
 				} else {
 					axisObj = reverseProperties.get(pfaObject.getName());
+					// this snippet contains an if check
+					snippet.setValue(m.getAnnotation(ProxyMethod.class)
+							.origMethod() + "((" + axisObj + ")arg)");
 				}
 
 				getFactory().getEnvironment().report(
@@ -195,9 +208,7 @@ public class ClassProcessor extends AbstractProcessor<CtClass<?>> {
 								+ m.getName() + "  PFA OBJECT NAME:"
 								+ pfaObject.getName());
 
-				// this snippet contains an if check
-				snippet.setValue(m.getAnnotation(ProxyMethod.class)
-						.origMethod() + "((" + axisObj + ")arg)");
+				
 
 				block.insertEnd(snippet);
 

@@ -106,6 +106,34 @@ public class ErrorType implements hr.ponge.pfa.service.base.ErrorType , org.apac
     }
     
     /** 
+     * field for StackTrace
+     */
+    protected java.lang.String localStackTrace;
+    
+    protected boolean localStackTraceTracker = false;
+    
+    public boolean isStackTraceSpecified() {
+        return localStackTraceTracker;
+    }
+    
+    /** 
+     * Auto generated getter method
+     * @return java.lang.String
+     */
+    public java.lang.String getStackTrace() {
+        return localStackTrace;
+    }
+    
+    /** 
+     * Auto generated setter method
+     * @param param StackTrace
+     */
+    public void setStackTrace(java.lang.String param) {
+        localStackTraceTracker = param != null;
+        this.localStackTrace = param;
+    }
+    
+    /** 
      *
      * @param parentQName
      * @param factory
@@ -166,6 +194,16 @@ public class ErrorType implements hr.ponge.pfa.service.base.ErrorType , org.apac
             } else {
                 throw new org.apache.axis2.databinding.ADBException("errorParams cannot be null!!");
             }
+        } 
+        if (localStackTraceTracker) {
+            namespace = "http://ponge.hr/pfa/axis/base";
+            writeStartElement(null ,namespace ,"stackTrace" ,xmlWriter);
+            if ((localStackTrace) == null) {
+                throw new org.apache.axis2.databinding.ADBException("stackTrace cannot be null!!");
+            } else {
+                xmlWriter.writeCharacters(localStackTrace);
+            }
+            xmlWriter.writeEndElement();
         } 
         xmlWriter.writeEndElement();
     }
@@ -348,6 +386,14 @@ public class ErrorType implements hr.ponge.pfa.service.base.ErrorType , org.apac
                 throw new org.apache.axis2.databinding.ADBException("errorParams cannot be null!!");
             }
         } 
+        if (localStackTraceTracker) {
+            elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/base" , "stackTrace"));
+            if ((localStackTrace) != null) {
+                elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localStackTrace));
+            } else {
+                throw new org.apache.axis2.databinding.ADBException("stackTrace cannot be null!!");
+            }
+        } 
         return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName , elementList.toArray() , attribList.toArray());
     }
     
@@ -437,6 +483,18 @@ public class ErrorType implements hr.ponge.pfa.service.base.ErrorType , org.apac
                         }
                     }
                     object.setErrorParams(((java.lang.String[])(list3.toArray(new java.lang.String[list3.size()]))));
+                } else {
+                }
+                while ((!(reader.isStartElement())) && (!(reader.isEndElement())))
+                    reader.next();
+                if ((reader.isStartElement()) && (new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/base" , "stackTrace").equals(reader.getName()))) {
+                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance" ,"nil");
+                    if (("true".equals(nillableValue)) || ("1".equals(nillableValue))) {
+                        throw new org.apache.axis2.databinding.ADBException(("The element: " + ("stackTrace" + "  cannot be null")));
+                    } 
+                    java.lang.String content = reader.getElementText();
+                    object.setStackTrace(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                    reader.next();
                 } else {
                 }
                 while ((!(reader.isStartElement())) && (!(reader.isEndElement())))

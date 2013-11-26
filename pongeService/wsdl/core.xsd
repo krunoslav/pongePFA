@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ponge.hr/pfa/axis/core"
 	xmlns:tns="http://ponge.hr/pfa/axis/core" elementFormDefault="qualified"
-	attributeFormDefault="qualified" xmlns:pref="http://ponge.hr/pfa/axis/base">
+	xmlns:pref="http://ponge.hr/pfa/axis/base">
 
 	<import schemaLocation="base.xsd" namespace="http://ponge.hr/pfa/axis/base"></import>
 
@@ -63,7 +63,7 @@
 	</complexType>
 
 	<complexType name="PictureTemplate">
-	<sequence>
+		<sequence>
 			<element name="id" type="long" maxOccurs="1" minOccurs="0">
 			</element>
 			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>

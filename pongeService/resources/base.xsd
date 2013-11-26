@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ponge.hr/pfa/axis/base" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ponge.hr/pfa/axis/base">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ponge.hr/pfa/axis/base" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ponge.hr/pfa/axis/base">
     <complexType name="ErrorType">
         <sequence>
             <element name="errorCode" type="string"/>
             <element minOccurs="0" name="errorMessageKey" type="string"/>
             <element maxOccurs="unbounded" minOccurs="0" name="errorParams" type="string"/>
+            <element minOccurs="0" name="stackTrace" type="string"/>
         </sequence>
     </complexType>
     <complexType name="RequestMetaData">

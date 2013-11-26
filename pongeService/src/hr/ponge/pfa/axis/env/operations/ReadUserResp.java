@@ -447,7 +447,11 @@ public class ReadUserResp implements hr.ponge.pfa.service.env.user.ReadUserRespD
     }
     
     public void setErrors_(hr.ponge.pfa.service.base.ErrorType[] arg) {
-        setErrors((hr.ponge.pfa.axis.base.ErrorType[])arg);
+        hr.ponge.pfa.axis.base.ErrorType[] er = new hr.ponge.pfa.axis.base.ErrorType[arg.length];
+ for(int i=0;i<arg.length;i++){ 
+     er[i]=(hr.ponge.pfa.axis.base.ErrorType) arg[i]; 
+ }
+setErrors(er);
     }
     
     public hr.ponge.pfa.service.base.ErrorType[] getErrors_() {
@@ -455,7 +459,11 @@ public class ReadUserResp implements hr.ponge.pfa.service.env.user.ReadUserRespD
     }
     
     public void setUsers_(hr.ponge.pfa.service.env.user.UserDTO[] arg) {
-        setUsers((hr.ponge.pfa.axis.env.User[])arg);
+        hr.ponge.pfa.axis.env.User[] er = new hr.ponge.pfa.axis.env.User[arg.length];
+ for(int i=0;i<arg.length;i++){ 
+     er[i]=(hr.ponge.pfa.axis.env.User) arg[i]; 
+ }
+setUsers(er);
     }
     
     public hr.ponge.pfa.service.env.user.UserDTO[] getUsers_() {
