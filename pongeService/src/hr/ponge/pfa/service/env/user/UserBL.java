@@ -3,6 +3,7 @@ package hr.ponge.pfa.service.env.user;
 import hr.ponge.pfa.PfaException;
 import hr.ponge.pfa.model.Tenant;
 import hr.ponge.pfa.model.User;
+import hr.ponge.pfa.service.BussinesLogic;
 import hr.ponge.pfa.service.base.ErrorType;
 import hr.ponge.util.BusinessLogicMethod;
 import hr.ponge.util.HibernateUtil;
@@ -18,8 +19,8 @@ import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 
-public class UserBL {
-	
+public class UserBL extends BussinesLogic {
+
 	private static final Logger log = Logger.getLogger(UserBL.class);
 
 	@BusinessLogicMethod
@@ -33,7 +34,7 @@ public class UserBL {
 				resp.setErrors_(errors.toArray(new ErrorType[errors.size()]));
 				return;
 			}
-			
+
 			User user = new User();
 
 			UserDTO dto = req.getUser_();
@@ -74,147 +75,90 @@ public class UserBL {
 			HibernateUtil hb, boolean create, User user) throws PfaException {
 		if (dto.isNameSpecified()) {
 			if (dto.getName().length() < 3) {
-				ErrorType er = PfaSingleton.getReference().createObject(
-						ErrorType.class);
-				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-				er.setErrorMessageKey("fieldMinChars");
-				String[] param = new String[] { "name", "3" };
-				er.setErrorParams(param);
-				errors.add(er);
+				errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldMinChars", new String[] { "name", "3" }));
 
 			}
 
 			if (dto.getName().length() > 250) {
-				ErrorType er = PfaSingleton.getReference().createObject(
-						ErrorType.class);
-				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-				er.setErrorMessageKey("fieldMaxChars");
-				String[] param = new String[] { "name", "250" };
-				er.setErrorParams(param);
-				errors.add(er);
+				errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldMaxChars", new String[] { "name", "250" }));
+
 			}
 		} else {
 			if (create) {
-				ErrorType er = PfaSingleton.getReference().createObject(
-						ErrorType.class);
-				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-				er.setErrorMessageKey("fieldNotSpecified");
-				String[] param = new String[] { "name" };
-				er.setErrorParams(param);
-				errors.add(er);
+				errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldNotSpecified", new String[] { "name" }));
+
 			}
 		}
 
 		if (dto.isSurnameSpecified()) {
 			if (dto.getSurname().length() < 3) {
-				ErrorType er = PfaSingleton.getReference().createObject(
-						ErrorType.class);
-				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-				er.setErrorMessageKey("fieldMinChars");
-				String[] param = new String[] { "surname", "3" };
-				er.setErrorParams(param);
-				errors.add(er);
+				errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldMinChars", new String[] { "surname", "3" }));
+
 			}
 			if (dto.getSurname().length() > 250) {
-				ErrorType er = PfaSingleton.getReference().createObject(
-						ErrorType.class);
-				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-				er.setErrorMessageKey("fieldMaxChars");
-				String[] param = new String[] { "surname", "250" };
-				er.setErrorParams(param);
-				errors.add(er);
+				errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldMaxChars", new String[] { "surname", "250" }));
+
 			}
 		} else {
 			if (create) {
-				ErrorType er = PfaSingleton.getReference().createObject(
-						ErrorType.class);
-				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-				er.setErrorMessageKey("fieldNotSpecified");
-				String[] param = new String[] { "surname" };
-				er.setErrorParams(param);
-				errors.add(er);
+				errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldNotSpecified", new String[] { "surname" }));
+
 			}
 		}
 
 		if (dto.isUsernameSpecified()) {
 			if (dto.getUsername().length() < 5) {
-				ErrorType er = PfaSingleton.getReference().createObject(
-						ErrorType.class);
-				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-				er.setErrorMessageKey("fieldMinChars");
-				String[] param = new String[] { "username", "5" };
-				er.setErrorParams(param);
-				errors.add(er);
+				errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldMinChars", new String[] { "username", "5" }));
+
 			}
 			if (dto.getUsername().length() > 250) {
-				ErrorType er = PfaSingleton.getReference().createObject(
-						ErrorType.class);
-				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-				er.setErrorMessageKey("fieldMaxChars");
-				String[] param = new String[] { "username", "250" };
-				er.setErrorParams(param);
-				errors.add(er);
+				errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldMaxChars", new String[] { "username", "250" }));
+
 			}
 		} else {
 			if (create) {
-				ErrorType er = PfaSingleton.getReference().createObject(
-						ErrorType.class);
-				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-				er.setErrorMessageKey("fieldNotSpecified");
-				String[] param = new String[] { "username" };
-				er.setErrorParams(param);
-				errors.add(er);
+				errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldNotSpecified", new String[] { "username" }));
+
 			}
 		}
 
 		if (dto.isPasswordSpecified()) {
 			if (dto.getPassword().length() < 5) {
-				ErrorType er = PfaSingleton.getReference().createObject(
-						ErrorType.class);
-				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-				er.setErrorMessageKey("fieldMinChars");
-				String[] param = new String[] { "password", "5" };
-				er.setErrorParams(param);
-				errors.add(er);
+				errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldMinChars", new String[] { "password", "5" }));
+
 			}
 			if (dto.getPassword().length() > 250) {
-				ErrorType er = PfaSingleton.getReference().createObject(
-						ErrorType.class);
-				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-				er.setErrorMessageKey("fieldMaxChars");
-				String[] param = new String[] { "password", "250" };
-				er.setErrorParams(param);
-				errors.add(er);
+				errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldMaxChars", new String[] { "password", "250" }));
+
 			}
 		} else {
 			if (create) {
-				ErrorType er = PfaSingleton.getReference().createObject(
-						ErrorType.class);
-				er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-				er.setErrorMessageKey("fieldNotSpecified");
-				String[] param = new String[] { "password" };
-				er.setErrorParams(param);
-				errors.add(er);
+				errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldNotSpecified", new String[] { "password" }));
+
 			}
 		}
 
 		if (create && !dto.isTenantIdSpecified()) {
-			ErrorType er = PfaSingleton.getReference().createObject(
-					ErrorType.class);
-			er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-			er.setErrorMessageKey("fieldNotSpecified");
-			String[] param = new String[] { "tenantId" };
-			er.setErrorParams(param);
-			errors.add(er);
+			errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+					"fieldNotSpecified", new String[] { "tenantId" }));
+
 		}
 		if (!create && !dto.isIdSpecified()) {
-			ErrorType er = PfaSingleton.getReference().createObject(
-					ErrorType.class);
-			er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-			er.setErrorMessageKey("fieldNotSpecified");
-			String[] param = new String[] { "id" };
-			er.setErrorParams(param);
-			errors.add(er);
+			errors.add(createError(PfaException.REQUEST_VALIDATION_ERROR,
+					"fieldNotSpecified", new String[] { "id" }));
+
 		}
 
 		if (errors.size() > 0) {
@@ -237,13 +181,10 @@ public class UserBL {
 				List lb = q.list();
 
 				if (lb.size() > 0) {
-					ErrorType er = PfaSingleton.getReference().createObject(
-							ErrorType.class);
-					er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-					er.setErrorMessageKey("usernameTaken");
-					String[] param = new String[] { dto.getUsername() };
-					er.setErrorParams(param);
-					errors.add(er);
+					errors.add(createError(
+							PfaException.REQUEST_VALIDATION_ERROR,
+							"usernameTaken", new String[] { dto.getUsername() }));
+
 				}
 			} catch (HibernateException e) {
 				PfaException pf = new PfaException(
@@ -310,11 +251,8 @@ public class UserBL {
 	private void validateReadUserRequest(ReadUserReqDTO req,
 			ReadUserRespDTO resp) {
 		if (!req.isTenantIdSpecified()) {
-			ErrorType err = PfaSingleton.getReference().createObject(
-					ErrorType.class);
-			err.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-			err.setErrorMessageKey("tenantIdMustBeSpecified");
-			resp.addErrors_(err);
+			resp.addErrors_(createError(PfaException.REQUEST_VALIDATION_ERROR,
+					"tenantIdMustBeSpecified", new String[] {}));
 
 		}
 
@@ -326,6 +264,14 @@ public class UserBL {
 
 		HibernateUtil hb = new HibernateUtil();
 		try {
+			if (!req.getUser_().isIdSpecified()) {
+				resp.addErrors_(createError(
+						PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldNotSpecified", new String[] { "id" }));
+
+				return;
+			}
+
 			User user = (User) hb.getSession().get(User.class,
 					req.getUser_().getId());
 			List<ErrorType> errors = new ArrayList<ErrorType>();
@@ -377,6 +323,12 @@ public class UserBL {
 
 		HibernateUtil hb = new HibernateUtil();
 		try {
+			if (!req.getUser_().isIdSpecified()) {
+				resp.addErrors_(createError(
+						PfaException.REQUEST_VALIDATION_ERROR,
+						"fieldNotSpecified", new String[] { "id" }));
+				return;
+			}
 			User user = (User) hb.getSession().get(User.class,
 					req.getUser_().getId());
 			boolean myTran = hb.beginTransaction();
@@ -392,18 +344,18 @@ public class UserBL {
 			throw e;
 
 		} catch (org.hibernate.exception.ConstraintViolationException e) {
-			log.error(e.getMessage(),e);
+			log.error(e.getMessage(), e);
 			hb.rollbackTransaction();
-			ErrorType er = PfaSingleton.getReference().createObject(
-					ErrorType.class);
-			er.setErrorCode(PfaException.REQUEST_VALIDATION_ERROR);
-			er.setErrorMessageKey("entityCannotBeDeletedItIsUsedByOtherEntities");
-			resp.addErrors_(er);
+			resp.addErrors_(createError(PfaException.REQUEST_VALIDATION_ERROR,
+					"entityCannotBeDeletedItIsUsedByOtherEntities",
+					new String[] {}));
+
 		} catch (Throwable e) {
-			log.error(e.getMessage(),e);
+			log.error(e.getMessage(), e);
 			hb.rollbackTransaction();
-		
-			throw new PfaException(PfaException.PERSISTENCE_ERROR, e.getMessage(), e);
+
+			throw new PfaException(PfaException.PERSISTENCE_ERROR,
+					e.getMessage(), e);
 		}
 
 	}

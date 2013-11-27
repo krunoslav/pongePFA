@@ -6,8 +6,12 @@ public interface TenantDTO {
 
 	public void setId(long id);
 
+	public boolean isIdSpecified();
+	
 	public String getName();
 
 	public void setName(String param);
+	
+	public boolean isNameSpecified();
 
 }

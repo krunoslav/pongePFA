@@ -458,6 +458,10 @@ setErrors(er);
         return getErrors();
     }
     
+    public void addUsers_(hr.ponge.pfa.service.env.user.UserDTO arg) {
+        addUsers((hr.ponge.pfa.axis.env.User)arg);
+    }
+    
     public void setUsers_(hr.ponge.pfa.service.env.user.UserDTO[] arg) {
         hr.ponge.pfa.axis.env.User[] er = new hr.ponge.pfa.axis.env.User[arg.length];
  for(int i=0;i<arg.length;i++){ 
@@ -468,10 +472,6 @@ setUsers(er);
     
     public hr.ponge.pfa.service.env.user.UserDTO[] getUsers_() {
         return getUsers();
-    }
-    
-    public void addUsers_(hr.ponge.pfa.service.env.user.UserDTO arg) {
-        addUsers((hr.ponge.pfa.axis.env.User)arg);
     }
     
 }

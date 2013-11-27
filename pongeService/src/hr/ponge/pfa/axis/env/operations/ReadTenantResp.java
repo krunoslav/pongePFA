@@ -458,7 +458,7 @@ setErrors(er);
         return getErrors();
     }
     
-    public void addUsers_(hr.ponge.pfa.service.env.tenant.TenantDTO arg) {
+    public void addTenants_(hr.ponge.pfa.service.env.tenant.TenantDTO arg) {
         addTenants((hr.ponge.pfa.axis.env.Tenant)arg);
     }
     

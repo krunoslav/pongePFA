@@ -11,6 +11,6 @@ public interface ReadTenantRespDTO extends ResponseDto {
 	public void setTenants_(TenantDTO[] param);
 
 	@ProxyMethod(origMethod = "addTenants")
-	public void addUsers_(TenantDTO param);
+	public void addTenants_(TenantDTO param);
 
 }
