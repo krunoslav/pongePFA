@@ -106,7 +106,7 @@
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="PfaService">
-		<wsdl:port name="PfaService" binding="impl:PfaServiceSoapBinding">
+		<wsdl:port name="PfaPort" binding="impl:PfaServiceSoapBinding">
 			<wsdlsoap:address location="http://localhost:8080/axis2/services/PfaService" />
 		</wsdl:port>
 	</wsdl:service>

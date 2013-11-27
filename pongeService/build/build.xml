@@ -22,21 +22,20 @@
 
 
 	<target name="create-service">
+			<delete dir="${basedir}/gen"></delete>
+		<mkdir dir="${basedir}/gen" />
 
-		<delete file="${basedir}/resources/services.xml">
-
-		</delete>
 		<delete dir="${basedir}/src/hr/ponge/pfa/axis">
 		</delete>
 
 		<java classname="org.apache.axis2.wsdl.WSDL2Java" classpathref="classpath" fork="true">
 			<arg line="-uri ${basedir}/wsdl/PfaService.wsdl" />
-			<arg line="--p hr.ponge.pfa.axis -o ${basedir} -d adb -s -wv 1.6.2 -ss -ssi -sd --noBuildXML" />
+			<arg line="--p hr.ponge.pfa.axis -o ${basedir} -d adb -s -wv 1.6.2 -ss -ssi -sd --noBuildXML -R gen" />
 		</java>
 
 
 
-		<xmltask source="${basedir}/resources/services.xml" dest="${basedir}/resources/services.xml">
+		<xmltask source="${basedir}/gen/services.xml" dest="${basedir}/gen/services.xml">
 			<attr path="/serviceGroup/service" attr="class" value="hr.ponge.pfa.axisLocalService.PfaServiceStartupListener" />
 
 			<remove path="/serviceGroup/service/parameter[@name = 'useOriginalwsdl']" />
@@ -72,7 +71,7 @@
 <!-- *************************************************************** -->
 <target name="package" depends="compile">
 <copy toDir="${basedir}/build/bin/classes/META-INF">
-	<fileset dir="${basedir}/resources">
+	<fileset dir="${basedir}/gen">
 		<include name="services.xml" />
 		<include name="*.wsdl" />
 		<include name="*.xsd" />

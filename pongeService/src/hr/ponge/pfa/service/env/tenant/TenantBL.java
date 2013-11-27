@@ -117,10 +117,10 @@ public class TenantBL extends BussinesLogic {
 
 		HibernateUtil hb = new HibernateUtil();
 		ParamSelect ps = new ParamSelect();
-		String sel = "Select t from Tenant t " + " where u.id != 0 ";
+		String sel = "Select t from Tenant t " + " where t.id != 0 ";
 
 		if (req.isIdSpecified()) {
-			sel = sel + " and u.id=:id ";
+			sel = sel + " and t.id=:id ";
 			ps.addParametar("id", req.getId());
 		}
 		if (req.isNameSpecified()) {
