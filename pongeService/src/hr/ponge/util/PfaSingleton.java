@@ -37,7 +37,7 @@ public class PfaSingleton {
 			Iterator<String> it = conf.getKeys();
 			while (it.hasNext()) {
 				String key = it.next();
-				String value = (String) conf.getProperty(key);
+				String value = conf.getString(key);
 				bindReverseProperties.put(value, key);
 				bindProperties.put(key, value);
 
@@ -48,7 +48,7 @@ public class PfaSingleton {
 			it = conf.getKeys();
 			while (it.hasNext()) {
 				String key = it.next();
-				String value = (String) conf.getProperty(key);
+				String value = conf.getString(key);
 				operationMap.put(key, value);
 
 			}
@@ -58,7 +58,7 @@ public class PfaSingleton {
 			it = conf.getKeys();
 			while (it.hasNext()) {
 				String key = it.next();
-				String value = (String) conf.getProperty(key);
+				String value = conf.getString(key);
 				properties.put(key, value);
 
 			}

@@ -63,6 +63,34 @@ public class ReadPictureReq implements hr.ponge.pfa.service.core.picture.ReadPic
     }
     
     /** 
+     * field for PullPicture
+     */
+    protected boolean localPullPicture;
+    
+    protected boolean localPullPictureTracker = false;
+    
+    public boolean isPullPictureSpecified() {
+        return localPullPictureTracker;
+    }
+    
+    /** 
+     * Auto generated getter method
+     * @return boolean
+     */
+    public boolean getPullPicture() {
+        return localPullPicture;
+    }
+    
+    /** 
+     * Auto generated setter method
+     * @param param PullPicture
+     */
+    public void setPullPicture(boolean param) {
+        localPullPictureTracker = true;
+        this.localPullPicture = param;
+    }
+    
+    /** 
      * field for TenantId
      */
     protected long localTenantId;
@@ -164,6 +192,16 @@ public class ReadPictureReq implements hr.ponge.pfa.service.core.picture.ReadPic
                 throw new org.apache.axis2.databinding.ADBException("userId cannot be null!!");
             } else {
                 xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localUserId));
+            }
+            xmlWriter.writeEndElement();
+        } 
+        if (localPullPictureTracker) {
+            namespace = "http://ponge.hr/pfa/axis/core/operations";
+            writeStartElement(null ,namespace ,"pullPicture" ,xmlWriter);
+            if (false) {
+                throw new org.apache.axis2.databinding.ADBException("pullPicture cannot be null!!");
+            } else {
+                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPullPicture));
             }
             xmlWriter.writeEndElement();
         } 
@@ -345,6 +383,10 @@ public class ReadPictureReq implements hr.ponge.pfa.service.core.picture.ReadPic
             elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core/operations" , "userId"));
             elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localUserId));
         } 
+        if (localPullPictureTracker) {
+            elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core/operations" , "pullPicture"));
+            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPullPicture));
+        } 
         if (localTenantIdTracker) {
             elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core/operations" , "tenantId"));
             elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTenantId));
@@ -421,6 +463,18 @@ public class ReadPictureReq implements hr.ponge.pfa.service.core.picture.ReadPic
                     reader.next();
                 } else {
                     object.setUserId(java.lang.Long.MIN_VALUE);
+                }
+                while ((!(reader.isStartElement())) && (!(reader.isEndElement())))
+                    reader.next();
+                if ((reader.isStartElement()) && (new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core/operations" , "pullPicture").equals(reader.getName()))) {
+                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance" ,"nil");
+                    if (("true".equals(nillableValue)) || ("1".equals(nillableValue))) {
+                        throw new org.apache.axis2.databinding.ADBException(("The element: " + ("pullPicture" + "  cannot be null")));
+                    } 
+                    java.lang.String content = reader.getElementText();
+                    object.setPullPicture(org.apache.axis2.databinding.utils.ConverterUtil.convertToBoolean(content));
+                    reader.next();
+                } else {
                 }
                 while ((!(reader.isStartElement())) && (!(reader.isEndElement())))
                     reader.next();

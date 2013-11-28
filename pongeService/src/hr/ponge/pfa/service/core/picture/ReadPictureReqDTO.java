@@ -18,6 +18,12 @@ public interface ReadPictureReqDTO extends RequestDto {
 
 	public boolean isUserIdSpecified();
 
+	public boolean getPullPicture();
+
+	public void setPullPicture(boolean param);
+
+	public boolean isPullPictureSpecified();
+
 	public long getTenantId();
 
 	public void setTenantId(long id);

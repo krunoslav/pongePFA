@@ -167,11 +167,19 @@
 	</complexType>
 	<complexType name="ReadPictureReq">
 		<sequence>
-			<element name="id" type="long" maxOccurs="1" minOccurs="0"></element>
-			<element name="userId" type="long" maxOccurs="1" minOccurs="0"></element>
-			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
-			<element name="limits" type="pref1:ReadOutLimits" maxOccurs="1"
-				minOccurs="0"></element>
+			<element name="id" type="long" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="userId" type="long" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="pullPicture" type="boolean" maxOccurs="1" minOccurs="0"></element>
+			<element name="tenantId" type="long" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="limits" type="pref1:ReadOutLimits"
+				maxOccurs="1" minOccurs="0">
+			</element>
 		</sequence>
 	</complexType>
 	<complexType name="ReadPictureResp">
