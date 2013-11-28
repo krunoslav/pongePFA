@@ -30,11 +30,13 @@
 			<element name="description" type="string" maxOccurs="1"
 				minOccurs="0"></element>
 			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="limits" type="pref1:ReadOutLimits" maxOccurs="1"
+				minOccurs="0"></element>
 		</sequence>
 	</complexType>
 	<complexType name="ReadDocumentResp">
 		<sequence>
-			<element name="document" type="pref:Document" maxOccurs="unbounded"
+			<element name="documents" type="pref:Document" maxOccurs="unbounded"
 				minOccurs="0">
 			</element>
 			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
@@ -98,12 +100,14 @@
 			<element name="description" type="string" maxOccurs="1"
 				minOccurs="0"></element>
 			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="limits" type="pref1:ReadOutLimits" maxOccurs="1"
+				minOccurs="0"></element>
 		</sequence>
 
 	</complexType>
 	<complexType name="ReadDocumentTmplResp">
 		<sequence>
-			<element name="documentTmpl" type="pref:DocumentTemplate"
+			<element name="documentTemplates" type="pref:DocumentTemplate"
 				maxOccurs="unbounded" minOccurs="0">
 			</element>
 			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
@@ -166,11 +170,13 @@
 			<element name="id" type="long" maxOccurs="1" minOccurs="0"></element>
 			<element name="userId" type="long" maxOccurs="1" minOccurs="0"></element>
 			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="limits" type="pref1:ReadOutLimits" maxOccurs="1"
+				minOccurs="0"></element>
 		</sequence>
 	</complexType>
 	<complexType name="ReadPictureResp">
 		<sequence>
-			<element name="picture" type="pref:Picture" maxOccurs="unbounded"
+			<element name="pictures" type="pref:Picture" maxOccurs="unbounded"
 				minOccurs="0">
 			</element>
 			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"
@@ -230,11 +236,13 @@
 		<sequence>
 			<element name="id" type="long" maxOccurs="1" minOccurs="0"></element>
 			<element name="tenantId" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="limits" type="pref1:ReadOutLimits" maxOccurs="1"
+				minOccurs="0"></element>
 		</sequence>
 	</complexType>
 	<complexType name="ReadPictureTmplResp">
 		<sequence>
-			<element name="pictureTmpl" type="pref:PictureTemplate"
+			<element name="pictureTemplates" type="pref:PictureTemplate"
 				maxOccurs="unbounded" minOccurs="0">
 			</element>
 			<element name="errors" type="pref1:ErrorType" maxOccurs="unbounded"

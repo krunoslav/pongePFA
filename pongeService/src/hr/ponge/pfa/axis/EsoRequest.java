@@ -90,7 +90,7 @@ public class EsoRequest implements org.apache.axis2.databinding.ADBBean {
     
     private static java.lang.String generatePrefix(java.lang.String namespace) {
         if (namespace.equals("http://ponge.hr/pfa/axis")) {
-            return "ns4";
+            return "ns6";
         } 
         return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
     }

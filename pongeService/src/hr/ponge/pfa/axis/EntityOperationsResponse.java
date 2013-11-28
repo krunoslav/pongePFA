@@ -6,7 +6,7 @@ package hr.ponge.pfa.axis;
  */
 @java.lang.SuppressWarnings(value = {"unchecked" ,"unused"})
 public class EntityOperationsResponse implements org.apache.axis2.databinding.ADBBean {
-    public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName("http://ponge.hr/pfa/axis" , "entityOperationsResponse" , "ns4");
+    public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName("http://ponge.hr/pfa/axis" , "entityOperationsResponse" , "ns6");
     
     /** 
      * field for EntityOperationsResponse
@@ -53,7 +53,7 @@ public class EntityOperationsResponse implements org.apache.axis2.databinding.AD
     
     private static java.lang.String generatePrefix(java.lang.String namespace) {
         if (namespace.equals("http://ponge.hr/pfa/axis")) {
-            return "ns4";
+            return "ns6";
         } 
         return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
     }

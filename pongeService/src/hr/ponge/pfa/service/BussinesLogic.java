@@ -1,6 +1,5 @@
 package hr.ponge.pfa.service;
 
-import hr.ponge.pfa.PfaException;
 import hr.ponge.pfa.service.base.ErrorType;
 import hr.ponge.util.PfaSingleton;
 

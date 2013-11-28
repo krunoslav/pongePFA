@@ -63,7 +63,8 @@ public class ClassProcessor extends AbstractProcessor<CtClass<?>> {
 		Iterator<String> it = conf.getKeys();
 		while (it.hasNext()) {
 			String key = it.next();
-			String value = (String) conf.getProperty(key);
+			
+			String value =  conf.getString(key);
 			reverseProperties.put(value, key);
 
 		}
@@ -75,7 +76,7 @@ public class ClassProcessor extends AbstractProcessor<CtClass<?>> {
 		// getFactory().getEnvironment().report(this, Severity.MESSAGE, element,
 		// "WORKING ON CLASS " + element.getQualifiedName());
 
-		String intfClass = (String) getProperties().getProperty(
+		String intfClass = (String) getProperties().getString(
 				element.getQualifiedName());
 
 		if (intfClass == null) {

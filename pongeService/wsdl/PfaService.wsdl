@@ -38,8 +38,38 @@
 						</element>
 						<element name="readTenant" type="pref2:ReadTenantReq">
 						</element>
-						<element name="updateTenant" type="pref2:UpdateTenantReq"></element>
-						<element name="deleteTenant" type="pref2:DeleteTenantReq"></element>
+						<element name="updateTenant" type="pref2:UpdateTenantReq">
+						</element>
+						<element name="deleteTenant" type="pref2:DeleteTenantReq">
+						</element>
+						<element name="createPicture" type="tns:CreatePictureReq">
+						</element>
+						<element name="readPicture" type="tns:ReadPictureReq">
+						</element>
+						<element name="updatePicture" type="tns:UpdatePictureReq">
+						</element>
+						<element name="deletePicture" type="tns:DeletePictureReq">
+						</element>
+						<element name="createPictureTmpl" type="tns:CreatePictureTmplReq">
+						</element>
+						<element name="readPictureTmpl" type="tns:ReadPictureTmplReq">
+						</element>
+						<element name="updatePictureTmpl" type="tns:UpdatePictureTmplReq"></element>
+						<element name="deletePictureTmpl" type="tns:DeletePictureTmplReq"></element>
+
+						<element name="createDocument" type="tns:CreateDocumentReq">
+						</element>
+						<element name="readDocument" type="tns:ReadDocumentReq">
+						</element>
+						<element name="updateDocument" type="tns:UpdateDocumentReq"></element>
+						<element name="deleteDocument" type="tns:DeleteDocumentReq"></element>
+
+						<element name="createDocumentTmpl" type="tns:CreateDocumentTmplReq">
+						</element>
+						<element name="readDocumentTmpl" type="tns:ReadDocumentTmplReq">
+						</element>
+						<element name="updateDocumentTmpl" type="tns:UpdateDocumentTmplReq"></element>
+						<element name="deleteDocumentTmpl" type="tns:DeleteDocumentTmplReq"></element>
 					</choice>
 
 				</sequence>
@@ -65,6 +95,35 @@
 						<element name="updateTenant" type="pref2:UpdateTenantResp"></element>
 						<element name="deleteTenant" type="pref2:DeleteTenantResp"></element>
 
+						<element name="createPicture" type="tns:CreatePictureResp">
+						</element>
+						<element name="readPicture" type="tns:ReadPictureResp">
+						</element>
+						<element name="updatePicture" type="tns:UpdatePictureResp">
+						</element>
+						<element name="deletePicture" type="tns:DeletePictureResp">
+						</element>
+						<element name="createPictureTmpl" type="tns:CreatePictureTmplResp">
+						</element>
+						<element name="readPictureTmpl" type="tns:ReadPictureTmplResp">
+						</element>
+						<element name="updatePictureTmpl" type="tns:UpdatePictureTmplResp"></element>
+						<element name="deletePictureTmpl" type="tns:DeletePictureTmplResp"></element>
+
+						<element name="createDocument" type="tns:CreateDocumentResp">
+						</element>
+						<element name="readDocument" type="tns:ReadDocumentResp">
+						</element>
+						<element name="updateDocument" type="tns:UpdateDocumentResp"></element>
+						<element name="deleteDocument" type="tns:DeleteDocumentResp"></element>
+
+						<element name="createDocumentTmpl" type="tns:CreateDocumentTmplResp">
+						</element>
+						<element name="readDocumentTmpl" type="tns:ReadDocumentTmplResp">
+						</element>
+						<element name="updateDocumentTmpl" type="tns:UpdateDocumentTmplResp"></element>
+						<element name="deleteDocumentTmpl" type="tns:DeleteDocumentTmplResp"></element>
+
 					</choice>
 				</sequence>
 			</complexType>
@@ -88,7 +147,8 @@
 	<wsdl:portType name="PfaServicePortType">
 		<wsdl:operation name="entityOperations">
 			<wsdl:input message="impl:entityOperationsRequest">
-				<wsdl:documentation></wsdl:documentation></wsdl:input>
+				<wsdl:documentation></wsdl:documentation>
+			</wsdl:input>
 			<wsdl:output message="impl:entityOperationsResponse"></wsdl:output>
 		</wsdl:operation>
 	</wsdl:portType>
