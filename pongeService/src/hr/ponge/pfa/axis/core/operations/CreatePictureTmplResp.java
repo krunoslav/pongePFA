@@ -390,6 +390,22 @@ public class CreatePictureTmplResp implements hr.ponge.pfa.service.core.pictureT
         
     }
     
+    public void addErrors_(hr.ponge.pfa.service.base.ErrorType arg) {
+        addErrors((hr.ponge.pfa.axis.base.ErrorType)arg);
+    }
+    
+    public void setErrors_(hr.ponge.pfa.service.base.ErrorType[] arg) {
+        hr.ponge.pfa.axis.base.ErrorType[] er = new hr.ponge.pfa.axis.base.ErrorType[arg.length];
+ for(int i=0;i<arg.length;i++){ 
+     er[i]=(hr.ponge.pfa.axis.base.ErrorType) arg[i]; 
+ }
+setErrors(er);
+    }
+    
+    public hr.ponge.pfa.service.base.ErrorType[] getErrors_() {
+        return getErrors();
+    }
+    
     public void setPictureTmpl_(hr.ponge.pfa.service.core.pictureTmpl.PictureTmplDTO arg) {
         setPictureTmpl((hr.ponge.pfa.axis.core.PictureTemplate)arg);
     }

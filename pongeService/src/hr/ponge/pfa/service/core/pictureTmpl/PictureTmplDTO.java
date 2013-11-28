@@ -1,6 +1,6 @@
 package hr.ponge.pfa.service.core.pictureTmpl;
 
-public interface PictureTmplDTO{
+public interface PictureTmplDTO {
 
 	public long getId();
 
@@ -37,5 +37,11 @@ public interface PictureTmplDTO{
 	public void setMd5Code(java.lang.String param);
 
 	public boolean isMd5CodeSpecified();
+
+	public long getTenantId();
+
+	public void setTenantId(long param);
+
+	public boolean isTenantIdSpecified();
 
 }

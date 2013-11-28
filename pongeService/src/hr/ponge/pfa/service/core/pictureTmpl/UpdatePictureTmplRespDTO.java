@@ -1,9 +1,9 @@
 package hr.ponge.pfa.service.core.pictureTmpl;
 
-import hr.ponge.pfa.service.base.RequestDto;
+import hr.ponge.pfa.service.base.ResponseDto;
 import hr.ponge.util.ProxyMethod;
 
-public interface UpdatePictureTmplRespDTO extends RequestDto {
+public interface UpdatePictureTmplRespDTO extends ResponseDto {
 	@ProxyMethod(origMethod = "getPictureTmpl")
 	public PictureTmplDTO getPictureTmpl_();
 

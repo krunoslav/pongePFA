@@ -14,12 +14,6 @@ public interface PictureDTO{
 
 	public boolean isUserIdSpecified();
 
-	public String getUsername();
-
-	public void setUsername(String param);
-
-	public boolean isUsernameSpecified();
-
 	public long getPicByteSize();
 
 	public void setPicByteSize(long param);

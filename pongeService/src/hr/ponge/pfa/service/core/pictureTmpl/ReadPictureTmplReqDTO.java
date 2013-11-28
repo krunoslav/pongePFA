@@ -18,6 +18,12 @@ public interface ReadPictureTmplReqDTO extends RequestDto {
 
 	public boolean isTenantIdSpecified();
 
+	public boolean getPullPicture();
+
+	public void setPullPicture(boolean param);
+
+	public boolean isPullPictureSpecified();
+
 	@ProxyMethod(origMethod = "getLimits")
 	public ReadOutLimitsDTO getLimits_();
 

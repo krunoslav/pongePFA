@@ -5,7 +5,7 @@ package hr.ponge.pfa.axis.core.operations;
  *  CreateDocumentReq bean class
  */
 @java.lang.SuppressWarnings(value = {"unchecked" ,"unused"})
-public class CreateDocumentReq implements org.apache.axis2.databinding.ADBBean {
+public class CreateDocumentReq implements hr.ponge.pfa.service.core.document.CreateDocumentReqDTO , org.apache.axis2.databinding.ADBBean {
     /** 
      * field for Document
      */
@@ -278,6 +278,14 @@ public class CreateDocumentReq implements org.apache.axis2.databinding.ADBBean {
             return object;
         }
         
+    }
+    
+    public void setDocument_(hr.ponge.pfa.service.core.document.DocumentDTO arg) {
+        setDocument((hr.ponge.pfa.axis.core.Document)arg);
+    }
+    
+    public hr.ponge.pfa.service.core.document.DocumentDTO getDocument_() {
+        return getDocument();
     }
     
 }

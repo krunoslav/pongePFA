@@ -63,34 +63,6 @@ public class Picture implements hr.ponge.pfa.service.core.picture.PictureDTO , o
     }
     
     /** 
-     * field for Username
-     */
-    protected java.lang.String localUsername;
-    
-    protected boolean localUsernameTracker = false;
-    
-    public boolean isUsernameSpecified() {
-        return localUsernameTracker;
-    }
-    
-    /** 
-     * Auto generated getter method
-     * @return java.lang.String
-     */
-    public java.lang.String getUsername() {
-        return localUsername;
-    }
-    
-    /** 
-     * Auto generated setter method
-     * @param param Username
-     */
-    public void setUsername(java.lang.String param) {
-        localUsernameTracker = param != null;
-        this.localUsername = param;
-    }
-    
-    /** 
      * field for PicByteSize
      */
     protected long localPicByteSize;
@@ -276,16 +248,6 @@ public class Picture implements hr.ponge.pfa.service.core.picture.PictureDTO , o
                 throw new org.apache.axis2.databinding.ADBException("userId cannot be null!!");
             } else {
                 xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localUserId));
-            }
-            xmlWriter.writeEndElement();
-        } 
-        if (localUsernameTracker) {
-            namespace = "http://ponge.hr/pfa/axis/core";
-            writeStartElement(null ,namespace ,"username" ,xmlWriter);
-            if ((localUsername) == null) {
-                throw new org.apache.axis2.databinding.ADBException("username cannot be null!!");
-            } else {
-                xmlWriter.writeCharacters(localUsername);
             }
             xmlWriter.writeEndElement();
         } 
@@ -504,14 +466,6 @@ public class Picture implements hr.ponge.pfa.service.core.picture.PictureDTO , o
             elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core" , "userId"));
             elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localUserId));
         } 
-        if (localUsernameTracker) {
-            elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core" , "username"));
-            if ((localUsername) != null) {
-                elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localUsername));
-            } else {
-                throw new org.apache.axis2.databinding.ADBException("username cannot be null!!");
-            }
-        } 
         if (localPicByteSizeTracker) {
             elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core" , "picByteSize"));
             elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPicByteSize));
@@ -601,18 +555,6 @@ public class Picture implements hr.ponge.pfa.service.core.picture.PictureDTO , o
                     reader.next();
                 } else {
                     object.setUserId(java.lang.Long.MIN_VALUE);
-                }
-                while ((!(reader.isStartElement())) && (!(reader.isEndElement())))
-                    reader.next();
-                if ((reader.isStartElement()) && (new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core" , "username").equals(reader.getName()))) {
-                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance" ,"nil");
-                    if (("true".equals(nillableValue)) || ("1".equals(nillableValue))) {
-                        throw new org.apache.axis2.databinding.ADBException(("The element: " + ("username" + "  cannot be null")));
-                    } 
-                    java.lang.String content = reader.getElementText();
-                    object.setUsername(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                    reader.next();
-                } else {
                 }
                 while ((!(reader.isStartElement())) && (!(reader.isEndElement())))
                     reader.next();

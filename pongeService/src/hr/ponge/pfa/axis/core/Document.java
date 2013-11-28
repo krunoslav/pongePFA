@@ -5,7 +5,7 @@ package hr.ponge.pfa.axis.core;
  *  Document bean class
  */
 @java.lang.SuppressWarnings(value = {"unchecked" ,"unused"})
-public class Document implements org.apache.axis2.databinding.ADBBean {
+public class Document implements hr.ponge.pfa.service.core.document.DocumentDTO , org.apache.axis2.databinding.ADBBean {
     /** 
      * field for Id
      */
@@ -91,59 +91,31 @@ public class Document implements org.apache.axis2.databinding.ADBBean {
     }
     
     /** 
-     * field for TenantId
+     * field for UserId
      */
-    protected long localTenantId;
+    protected long localUserId;
     
-    protected boolean localTenantIdTracker = false;
+    protected boolean localUserIdTracker = false;
     
-    public boolean isTenantIdSpecified() {
-        return localTenantIdTracker;
+    public boolean isUserIdSpecified() {
+        return localUserIdTracker;
     }
     
     /** 
      * Auto generated getter method
      * @return long
      */
-    public long getTenantId() {
-        return localTenantId;
+    public long getUserId() {
+        return localUserId;
     }
     
     /** 
      * Auto generated setter method
-     * @param param TenantId
+     * @param param UserId
      */
-    public void setTenantId(long param) {
-        localTenantIdTracker = param != (java.lang.Long.MIN_VALUE);
-        this.localTenantId = param;
-    }
-    
-    /** 
-     * field for TenantName
-     */
-    protected java.lang.String localTenantName;
-    
-    protected boolean localTenantNameTracker = false;
-    
-    public boolean isTenantNameSpecified() {
-        return localTenantNameTracker;
-    }
-    
-    /** 
-     * Auto generated getter method
-     * @return java.lang.String
-     */
-    public java.lang.String getTenantName() {
-        return localTenantName;
-    }
-    
-    /** 
-     * Auto generated setter method
-     * @param param TenantName
-     */
-    public void setTenantName(java.lang.String param) {
-        localTenantNameTracker = param != null;
-        this.localTenantName = param;
+    public void setUserId(long param) {
+        localUserIdTracker = param != (java.lang.Long.MIN_VALUE);
+        this.localUserId = param;
     }
     
     /** 
@@ -208,23 +180,13 @@ public class Document implements org.apache.axis2.databinding.ADBBean {
             }
             xmlWriter.writeEndElement();
         } 
-        if (localTenantIdTracker) {
+        if (localUserIdTracker) {
             namespace = "http://ponge.hr/pfa/axis/core";
-            writeStartElement(null ,namespace ,"tenantId" ,xmlWriter);
-            if ((localTenantId) == (java.lang.Long.MIN_VALUE)) {
-                throw new org.apache.axis2.databinding.ADBException("tenantId cannot be null!!");
+            writeStartElement(null ,namespace ,"userId" ,xmlWriter);
+            if ((localUserId) == (java.lang.Long.MIN_VALUE)) {
+                throw new org.apache.axis2.databinding.ADBException("userId cannot be null!!");
             } else {
-                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTenantId));
-            }
-            xmlWriter.writeEndElement();
-        } 
-        if (localTenantNameTracker) {
-            namespace = "http://ponge.hr/pfa/axis/core";
-            writeStartElement(null ,namespace ,"tenantName" ,xmlWriter);
-            if ((localTenantName) == null) {
-                throw new org.apache.axis2.databinding.ADBException("tenantName cannot be null!!");
-            } else {
-                xmlWriter.writeCharacters(localTenantName);
+                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localUserId));
             }
             xmlWriter.writeEndElement();
         } 
@@ -398,17 +360,9 @@ public class Document implements org.apache.axis2.databinding.ADBBean {
             elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core" , "documentForm"));
             elementList.add(localDocumentForm);
         } 
-        if (localTenantIdTracker) {
-            elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core" , "tenantId"));
-            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTenantId));
-        } 
-        if (localTenantNameTracker) {
-            elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core" , "tenantName"));
-            if ((localTenantName) != null) {
-                elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTenantName));
-            } else {
-                throw new org.apache.axis2.databinding.ADBException("tenantName cannot be null!!");
-            }
+        if (localUserIdTracker) {
+            elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core" , "userId"));
+            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localUserId));
         } 
         return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName , elementList.toArray() , attribList.toArray());
     }
@@ -484,28 +438,16 @@ public class Document implements org.apache.axis2.databinding.ADBBean {
                 }
                 while ((!(reader.isStartElement())) && (!(reader.isEndElement())))
                     reader.next();
-                if ((reader.isStartElement()) && (new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core" , "tenantId").equals(reader.getName()))) {
+                if ((reader.isStartElement()) && (new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core" , "userId").equals(reader.getName()))) {
                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance" ,"nil");
                     if (("true".equals(nillableValue)) || ("1".equals(nillableValue))) {
-                        throw new org.apache.axis2.databinding.ADBException(("The element: " + ("tenantId" + "  cannot be null")));
+                        throw new org.apache.axis2.databinding.ADBException(("The element: " + ("userId" + "  cannot be null")));
                     } 
                     java.lang.String content = reader.getElementText();
-                    object.setTenantId(org.apache.axis2.databinding.utils.ConverterUtil.convertToLong(content));
+                    object.setUserId(org.apache.axis2.databinding.utils.ConverterUtil.convertToLong(content));
                     reader.next();
                 } else {
-                    object.setTenantId(java.lang.Long.MIN_VALUE);
-                }
-                while ((!(reader.isStartElement())) && (!(reader.isEndElement())))
-                    reader.next();
-                if ((reader.isStartElement()) && (new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core" , "tenantName").equals(reader.getName()))) {
-                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance" ,"nil");
-                    if (("true".equals(nillableValue)) || ("1".equals(nillableValue))) {
-                        throw new org.apache.axis2.databinding.ADBException(("The element: " + ("tenantName" + "  cannot be null")));
-                    } 
-                    java.lang.String content = reader.getElementText();
-                    object.setTenantName(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                    reader.next();
-                } else {
+                    object.setUserId(java.lang.Long.MIN_VALUE);
                 }
                 while ((!(reader.isStartElement())) && (!(reader.isEndElement())))
                     reader.next();

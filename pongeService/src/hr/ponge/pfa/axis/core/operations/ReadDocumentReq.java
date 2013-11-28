@@ -5,7 +5,7 @@ package hr.ponge.pfa.axis.core.operations;
  *  ReadDocumentReq bean class
  */
 @java.lang.SuppressWarnings(value = {"unchecked" ,"unused"})
-public class ReadDocumentReq implements org.apache.axis2.databinding.ADBBean {
+public class ReadDocumentReq implements hr.ponge.pfa.service.core.document.ReadDocumentReqDTO , org.apache.axis2.databinding.ADBBean {
     /** 
      * field for Id
      */
@@ -63,31 +63,31 @@ public class ReadDocumentReq implements org.apache.axis2.databinding.ADBBean {
     }
     
     /** 
-     * field for TenantId
+     * field for UserId
      */
-    protected long localTenantId;
+    protected long localUserId;
     
-    protected boolean localTenantIdTracker = false;
+    protected boolean localUserIdTracker = false;
     
-    public boolean isTenantIdSpecified() {
-        return localTenantIdTracker;
+    public boolean isUserIdSpecified() {
+        return localUserIdTracker;
     }
     
     /** 
      * Auto generated getter method
      * @return long
      */
-    public long getTenantId() {
-        return localTenantId;
+    public long getUserId() {
+        return localUserId;
     }
     
     /** 
      * Auto generated setter method
-     * @param param TenantId
+     * @param param UserId
      */
-    public void setTenantId(long param) {
-        localTenantIdTracker = param != (java.lang.Long.MIN_VALUE);
-        this.localTenantId = param;
+    public void setUserId(long param) {
+        localUserIdTracker = param != (java.lang.Long.MIN_VALUE);
+        this.localUserId = param;
     }
     
     /** 
@@ -167,13 +167,13 @@ public class ReadDocumentReq implements org.apache.axis2.databinding.ADBBean {
             }
             xmlWriter.writeEndElement();
         } 
-        if (localTenantIdTracker) {
+        if (localUserIdTracker) {
             namespace = "http://ponge.hr/pfa/axis/core/operations";
-            writeStartElement(null ,namespace ,"tenantId" ,xmlWriter);
-            if ((localTenantId) == (java.lang.Long.MIN_VALUE)) {
-                throw new org.apache.axis2.databinding.ADBException("tenantId cannot be null!!");
+            writeStartElement(null ,namespace ,"userId" ,xmlWriter);
+            if ((localUserId) == (java.lang.Long.MIN_VALUE)) {
+                throw new org.apache.axis2.databinding.ADBException("userId cannot be null!!");
             } else {
-                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTenantId));
+                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localUserId));
             }
             xmlWriter.writeEndElement();
         } 
@@ -349,9 +349,9 @@ public class ReadDocumentReq implements org.apache.axis2.databinding.ADBBean {
                 throw new org.apache.axis2.databinding.ADBException("description cannot be null!!");
             }
         } 
-        if (localTenantIdTracker) {
-            elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core/operations" , "tenantId"));
-            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localTenantId));
+        if (localUserIdTracker) {
+            elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core/operations" , "userId"));
+            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localUserId));
         } 
         if (localLimitsTracker) {
             elementList.add(new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core/operations" , "limits"));
@@ -427,16 +427,16 @@ public class ReadDocumentReq implements org.apache.axis2.databinding.ADBBean {
                 }
                 while ((!(reader.isStartElement())) && (!(reader.isEndElement())))
                     reader.next();
-                if ((reader.isStartElement()) && (new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core/operations" , "tenantId").equals(reader.getName()))) {
+                if ((reader.isStartElement()) && (new javax.xml.namespace.QName("http://ponge.hr/pfa/axis/core/operations" , "userId").equals(reader.getName()))) {
                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance" ,"nil");
                     if (("true".equals(nillableValue)) || ("1".equals(nillableValue))) {
-                        throw new org.apache.axis2.databinding.ADBException(("The element: " + ("tenantId" + "  cannot be null")));
+                        throw new org.apache.axis2.databinding.ADBException(("The element: " + ("userId" + "  cannot be null")));
                     } 
                     java.lang.String content = reader.getElementText();
-                    object.setTenantId(org.apache.axis2.databinding.utils.ConverterUtil.convertToLong(content));
+                    object.setUserId(org.apache.axis2.databinding.utils.ConverterUtil.convertToLong(content));
                     reader.next();
                 } else {
-                    object.setTenantId(java.lang.Long.MIN_VALUE);
+                    object.setUserId(java.lang.Long.MIN_VALUE);
                 }
                 while ((!(reader.isStartElement())) && (!(reader.isEndElement())))
                     reader.next();
@@ -456,6 +456,18 @@ public class ReadDocumentReq implements org.apache.axis2.databinding.ADBBean {
             return object;
         }
         
+    }
+    
+    public boolean isLimitsSpecified_() {
+        return isLimitsSpecified();
+    }
+    
+    public void setLimits_(hr.ponge.pfa.service.base.ReadOutLimitsDTO arg) {
+        setLimits((hr.ponge.pfa.axis.base.ReadOutLimits)arg);
+    }
+    
+    public hr.ponge.pfa.service.base.ReadOutLimitsDTO getLimits_() {
+        return getLimits();
     }
     
 }

@@ -311,7 +311,6 @@ public class PictureBL extends BussinesLogic {
 		dto.setMd5Code(picture.getMd5Code());
 		dto.setPicByteSize(picture.getPicByteSize());
 		dto.setUserId(picture.getUser().getId());
-		dto.setUsername(picture.getUser().getUsername());
 		dto.setXsize(picture.getxSize());
 		dto.setYsize(picture.getySize());
 		if (pullPicture) {

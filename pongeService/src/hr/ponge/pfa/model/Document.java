@@ -56,16 +56,15 @@ public class Document extends EntityPfa {
 		this.documentForm = documentForm;
 	}
 
-	private Tenant tenant;
+	private User user;
 
 	@ManyToOne
-	@JoinColumn(name = "tenant_id", nullable = false, updatable = false)
-	public Tenant getTenant() {
-		return tenant;
+	@JoinColumn(name = "user_id", nullable = false, updatable = false)
+	public User getUser() {
+		return user;
 	}
 
-	public void setTenant(Tenant tenant) {
-		this.tenant = tenant;
+	public void setUser(User user) {
+		this.user = user;
 	}
-
 }

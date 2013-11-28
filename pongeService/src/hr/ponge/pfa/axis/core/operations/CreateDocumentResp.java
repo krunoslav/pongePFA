@@ -5,7 +5,7 @@ package hr.ponge.pfa.axis.core.operations;
  *  CreateDocumentResp bean class
  */
 @java.lang.SuppressWarnings(value = {"unchecked" ,"unused"})
-public class CreateDocumentResp implements org.apache.axis2.databinding.ADBBean {
+public class CreateDocumentResp implements hr.ponge.pfa.service.core.document.CreateDocumentRespDTO , org.apache.axis2.databinding.ADBBean {
     /** 
      * field for Document
      */
@@ -388,6 +388,30 @@ public class CreateDocumentResp implements org.apache.axis2.databinding.ADBBean 
             return object;
         }
         
+    }
+    
+    public void addErrors_(hr.ponge.pfa.service.base.ErrorType arg) {
+        addErrors((hr.ponge.pfa.axis.base.ErrorType)arg);
+    }
+    
+    public void setErrors_(hr.ponge.pfa.service.base.ErrorType[] arg) {
+        hr.ponge.pfa.axis.base.ErrorType[] er = new hr.ponge.pfa.axis.base.ErrorType[arg.length];
+ for(int i=0;i<arg.length;i++){ 
+     er[i]=(hr.ponge.pfa.axis.base.ErrorType) arg[i]; 
+ }
+setErrors(er);
+    }
+    
+    public hr.ponge.pfa.service.base.ErrorType[] getErrors_() {
+        return getErrors();
+    }
+    
+    public void setDocument_(hr.ponge.pfa.service.core.document.DocumentDTO arg) {
+        setDocument((hr.ponge.pfa.axis.core.Document)arg);
+    }
+    
+    public hr.ponge.pfa.service.core.document.DocumentDTO getDocument_() {
+        return getDocument();
     }
     
 }

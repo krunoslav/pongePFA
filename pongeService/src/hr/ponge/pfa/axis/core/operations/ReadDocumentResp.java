@@ -5,7 +5,7 @@ package hr.ponge.pfa.axis.core.operations;
  *  ReadDocumentResp bean class
  */
 @java.lang.SuppressWarnings(value = {"unchecked" ,"unused"})
-public class ReadDocumentResp implements org.apache.axis2.databinding.ADBBean {
+public class ReadDocumentResp implements hr.ponge.pfa.service.core.document.ReadDocumentRespDTO , org.apache.axis2.databinding.ADBBean {
     /** 
      * field for Documents
      * This was an Array!
@@ -440,6 +440,38 @@ public class ReadDocumentResp implements org.apache.axis2.databinding.ADBBean {
             return object;
         }
         
+    }
+    
+    public void addErrors_(hr.ponge.pfa.service.base.ErrorType arg) {
+        addErrors((hr.ponge.pfa.axis.base.ErrorType)arg);
+    }
+    
+    public void setErrors_(hr.ponge.pfa.service.base.ErrorType[] arg) {
+        hr.ponge.pfa.axis.base.ErrorType[] er = new hr.ponge.pfa.axis.base.ErrorType[arg.length];
+ for(int i=0;i<arg.length;i++){ 
+     er[i]=(hr.ponge.pfa.axis.base.ErrorType) arg[i]; 
+ }
+setErrors(er);
+    }
+    
+    public hr.ponge.pfa.service.base.ErrorType[] getErrors_() {
+        return getErrors();
+    }
+    
+    public void addDocuments_(hr.ponge.pfa.service.core.document.DocumentDTO arg) {
+        addDocuments((hr.ponge.pfa.axis.core.Document)arg);
+    }
+    
+    public void setDocuments_(hr.ponge.pfa.service.core.document.DocumentDTO[] arg) {
+        hr.ponge.pfa.axis.core.Document[] er = new hr.ponge.pfa.axis.core.Document[arg.length];
+ for(int i=0;i<arg.length;i++){ 
+     er[i]=(hr.ponge.pfa.axis.core.Document) arg[i]; 
+ }
+setDocuments(er);
+    }
+    
+    public hr.ponge.pfa.service.core.document.DocumentDTO[] getDocuments_() {
+        return getDocuments();
     }
     
 }
