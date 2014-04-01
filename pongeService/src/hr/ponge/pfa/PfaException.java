@@ -3,6 +3,11 @@ package hr.ponge.pfa;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author kruno
+ *
+ */
 public class PfaException extends Exception {
 
 	/**
